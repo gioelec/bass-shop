@@ -1,0 +1,25 @@
+#sign_in_content_header{
+	color: green;
+	font-size: 30pt;
+}
+#sign_in_content{
+	left: 35%;
+	position: absolute;
+	width: 20%;
+	margin: auto;
+	text-align: center;
+	color: white;
+	background-color: rgb(100, 255, 150);
+	padding: 3%;
+	border-radius: 12px;
+	margin-top: 10%;
+}
+
+label{
+	font-size: 20pt;
+	text-align: left;
+}
+label:after { content: ": " }
+input {
+	align-self: right;
+}

@@ -1,0 +1,30 @@
+body{
+	margin: 0px;
+}
+
+#menu{
+	width: 100px;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	background-color: rgb(39, 39, 39);
+	color: rgb(170, 170, 170);
+	padding: 20px 20px;
+	text-align: center;
+}
+#content_nav{
+	width: 100%;
+	background-color: grey; 
+	margin-left: 142px;
+	text-align: center;
+	padding-right: 30px;
+}
+.emptyResult{
+	margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+	border-style: dotted;
+	text-align: center;
+}
