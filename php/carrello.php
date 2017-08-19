@@ -53,10 +53,10 @@
 							foreach($items as $item){
 								$nome=$item->__get('nome');
 								$prezzo=$item->__get('prezzo');
-								$totale+=$prezzo[0]*$quantita[$i];
+								$totale+=$prezzo*$quantita[$i];
 								echo "<div>";	
-									echo "<label> $nome[0] </label>";
-									echo "<label> $prezzo[0] </label>";
+									echo "<label> $nome </label>";
+									echo "<label> $prezzo </label>";
 									echo "<label> $quantita[$i] </label>";
 								echo "</div>";
 								$i++;								

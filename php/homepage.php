@@ -13,15 +13,18 @@
 		    header('Location: ./../index.php');
 		    exit;
     }
-     if (!isset($_SESSION['carrello'])) {
+    if (!isset($_SESSION['carrello'])) {
     	$_SESSION['carrello']=Carrello::getIstanza();
     }
     $carrello=$_SESSION['carrello'];
     $escheDiTendenza= Esca::getTendenza();
-    $esca= new Esca(Esca::getEsca());
+
+    $esca= new Esca($escheDiTendenza[0]);
+    print_r($esca);
+
  	$carrello->add($esca,2);
- 	$carrello->add($esca,3);
-   	print_r($carrello);
+ 	//$carrello->add($esca,3);
+   //	print_r($carrello);
 ?>
 <!DOCTYPE html>
 <html lang="it">

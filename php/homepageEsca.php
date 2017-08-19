@@ -14,12 +14,8 @@
     }
 
     $email = $_SESSION['email'];
-	$ultimiAcquisti= Esca::getElencoEsche($email);
+	$esche= Esca::getElencoEsche();
 	$carrello=new Carrello();
-	foreach($ultimiAcquisti as $esca) {
-		$bait= new Esca($esca);
-		$carrello->add($esca,1);
-	}
 
 ?>
 <!DOCTYPE html>
@@ -48,22 +44,22 @@
 			<article data-fragment data-name="Seguiti">
 				<header><h3>Di Tendenza</h3></header>
 					<?php
-						if(!sizeof($ultimiAcquisti)) echo "<p class='emptyResult'>Non hai ancora effettuato acquisti</p>";
+						if(!sizeof($esche)) echo "<p class='emptyResult'>Non hai ancora effettuato acquisti</p>";
 					?>
 					<ul class="Lista">
 						<?php
-							foreach($ultimiAcquisti as $esca) {
+							foreach($esche as $esca) {
 								echo "<ul class='pubblicizza'>";
 									echo "<li>";
 										echo "<a>";
-										echo "<h1>{$esca['nome']}</h1> ";
-											echo "<img id= 'vendita' alt='cover' src={$esca['immagine']}>";
+										echo "<h1>{$esca['Nome']}</h1> ";
+											echo "<img id= 'vendita' alt='cover' src={$esca['Immagine']}>";
 											  	echo "<figcaption>";
-        											echo "<p>{$esca['descrizione']}</p>";
+        											echo "<p>{$esca['Descrizione']}</p>";
     											echo "</figcaption>";
     											echo "<label for='quanti'>Quantità</label><br>";
     											echo"<input required max='10' min='0' title='Inserisci una quantità valida da 0 a 10' type='number' name='quanti' id='quanti'>";
-											echo "<input class= 'aggiungi' type='submit' value='Aggiungi al carrello' action='$carrello->add($esca,1)'>";
+											echo "<input class= 'aggiungi' type='submit' value='Aggiungi al carrello' >";
 										echo "</a>";
 									echo "</li>";
 								echo "</ul>";									

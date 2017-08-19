@@ -4,20 +4,26 @@ require_once __DIR__ . "/config.php";
 require_once DIR_UTIL . "bassShopDbManager.php";
 require_once DIR_UTIL . "sessionUtil.php";
 class Esca {
-	private $idItem;
-	private $nome;
-	private $prezzo;
-	private $peso;
-	private $lunghezza;
+	public $idItem;
+	public $nome;
+	public $prezzo;
+	public $peso;
+	public $lunghezza;
+	public $immagine;
+	public $tipo;
+	public $descrizione;
 
-
-	public function __construct($esca = array()) {
-		if($esca) {
-			$this->idItem = array_column($esca, 'idItem');
-			$this->prezzo = array_column($esca, 'Prezzo');
-			$this->peso = array_column($esca, 'Peso');
-			$this->lunghezza = array_column($esca, 'Lunghezza');
-			$this->nome = array_column($esca, 'Nome');
+	public function __construct($fields = array()) {
+		if($fields) {
+			print_r($fields);
+			//$this->idItem = array_column($esca, 'idItem');
+			$this->prezzo = $fields['Prezzo'];
+			$this->peso = $fields['Peso'];
+			$this->lunghezza = $fields ['Lunghezza'];
+			$this->nome = $fields ['Nome'];
+			//$this->immagine= array_column($fields, ['Immagine']);
+			$this->tipo= "e";
+			$this->descrizione= $fields ['Descrizione'];
 		}
 	}
 
@@ -34,21 +40,30 @@ class Esca {
 	}
 
 
-	public function create() {
+	public function create($file,$sDb = 0) {
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("INSERT INTO esche(prezzo,lunghezza,peso) VALUES(?,?,?)");
-		//checkQuery($stmnt);
-		$stmnt->bind_param("sss",$this->prezzo,$this->lunghezza,$this->peso);
-		$stmnt->execute();
-		$this->idItem = $bassShopDb->insert_id;
-		return $this->idItem;
+		$extension = pathinfo($file['name'],PATHINFO_EXTENSION);
+		$filename = basename($file['name'], ".$extension") . date("Ymdhis") . "." . $extension;
+		move_uploaded_file($file['tmp_name'], "." . "./uploads/" . $filename);
+		$path =  "./uploads/"  . $filename;
+		//echo $this->nome[0];
+		if($sDb) {
+			$stmnt = $bassShopDb->prepare("INSERT INTO items(Nome,Prezzo,Lunghezza,Peso,Descrizione,Immagine,Tipo) VALUES(?,?,?,?,?,?,?)");
+			checkQuery($stmnt);
+			$stmnt->bind_param("siiisss",$this->nome,$this->prezzo,$this->lunghezza,$this->peso,
+				$this->descrizione,$path,$this->tipo);
+			if(!$stmnt->execute())
+				echo $bassShopDb->getConnection()->error;
+			return $bassShopDb->getConnection()->insert_id; //return new file's database id
+		}
+		return $path;
 	}
 
 
 	public function delete() {
 		global $bassShopDb;
 		$stmnt = $bassShopDb->prepare("DELETE FROM user WHERE idItem=?");
-		//checkQuery($stmnt);
+		checkQuery($stmnt);
 		$stmnt->bind_param("i",$this->idItem);
 		return $stmnt->execute();
 	}
@@ -58,7 +73,7 @@ class Esca {
 	
 
 
-		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,prezzo,peso,lunghezza,Immagine,Descrizione
+		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione
 			FROM escheDiTendenza INNER JOIN items ON items.idItem=escheDiTendenza.idEsca
 			WHERE items.Tipo='e' ORDER BY quanti DESC");
 		checkQuery($stmnt);	
@@ -69,7 +84,7 @@ class Esca {
 	}
 	public static function getElencoEsche() {
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT idItem,nome,prezzo,peso,lunghezza,immagine,descrizione FROM items WHERE items.Tipo='e'  ORDER BY nome");
+		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione FROM items WHERE items.Tipo='e'  ORDER BY nome");
 		checkQuery($stmnt);	
 		$stmnt->execute();
 		$result = $stmnt->get_result();
@@ -91,7 +106,7 @@ class Esca {
 	}
 	public static function getCanne(){
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT * FROM items WHERE items.Tipo='c'  ORDER BY nome");
+		$stmnt = $bassShopDb->prepare("SELECT Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione FROM items WHERE items.Tipo='c'  ORDER BY nome");
 		checkQuery($stmnt);	
 		$stmnt->execute();
 		$result = $stmnt->get_result();
@@ -99,7 +114,7 @@ class Esca {
 	}
 	public static function getMulinelli(){
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT * FROM items WHERE items.Tipo='m'  ORDER BY nome");
+		$stmnt = $bassShopDb->prepare("SELECT Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione FROM items WHERE items.Tipo='m'  ORDER BY nome");
 		checkQuery($stmnt);	
 		$stmnt->execute();
 		$result = $stmnt->get_result();
@@ -107,7 +122,7 @@ class Esca {
 	}
 	public static function getEsca(){
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT * FROM items WHERE items.Tipo='e'  LIMIT 1");
+		$stmnt = $bassShopDb->prepare("SELECT Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione FROM items WHERE items.Tipo='e'  LIMIT 1");
 		checkQuery($stmnt);	
 		$stmnt->execute();
 		$result = $stmnt->get_result();
