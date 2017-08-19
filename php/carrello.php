@@ -2,7 +2,7 @@
 	require_once __DIR__ . "/config.php";
     require_once DIR_UTIL . "/sessionUtil.php";
     require_once __DIR__ . "/esca.php";
-    include DIR_UTIL . "/carrelloManager.php";
+    require_once DIR_UTIL . "/carrelloManager.php";
 	session_start();
 
     if (!isset($_SESSION['logged'])) {
@@ -12,8 +12,14 @@
 		    header('Location: ./../index.php');
 		    exit;
     }
-    global $carrello;
+    if (!isset($_SESSION['carrello'])) {
+    	$_SESSION['carrello']=Carrello::getIstanza();
+    }
+    $carrello=$_SESSION['carrello'];
     $totale= $carrello->getTotale();
+    $items= $carrello->getItems();
+    $quantita=$carrello->getQt();
+
 
 ?>
 <!DOCTYPE html>
@@ -32,31 +38,30 @@
 			
 		echo '<div id="content">';
 
-			include DIR_LAYOUT . "horizontal_menu.php";
+		include DIR_LAYOUT . "horizontal_menu.php";
 	?>		
 			<article data-fragment data-name="Seguiti">
-				<header><h3>Di Tendenza</h3></header>
+				<header><h3>Carrello</h3></header>
 					<?php
 						if($totale===0) echo "<p class='emptyResult'>Non hai ancora inserito niente nel carrello</p>";
+						$totale=0;
 					?>
 					<ul class="Lista">
 						<?php
-							/*foreach($escheDiTendenza as $esca) {
-								echo "<ul class='pubblicizza'>";
-									echo "<li>";
-										echo "<a>";
-										echo "<h1>{$esca['Nome']}</h1> ";
-											echo "<img id= 'vendita' alt='cover' src={$esca['Immagine']}>";
-											  	echo "<figcaption>";
-        											echo "<p>{$esca['Descrizione']}</p>";
-    											echo "</figcaption>";
-    											echo "<label for='quanti'>Quantità</label><br>";
-    											echo"<input required max='10' min='0' title='Inserisci una quantità valida da 0 a 10' type='number' name='quanti' id='quanti'>";
-											echo "<input class= 'aggiungi' type='submit' value='Aggiungi al carrello'>";
-										echo "</a>";
-									echo "</li>";
-								echo "</ul>";									
-							}*/
+							$i=0;
+							
+							foreach($items as $item){
+								$nome=$item->__get('nome');
+								$prezzo=$item->__get('prezzo');
+								$totale+=$prezzo[0]*$quantita[$i];
+								echo "<div>";	
+									echo "<label> $nome[0] </label>";
+									echo "<label> $prezzo[0] </label>";
+									echo "<label> $quantita[$i] </label>";
+								echo "</div>";
+								$i++;								
+							}
+							echo "<h2>TOTALE: $totale</h2>";
 						?>
 					</ul>
 			</article>

@@ -1,10 +1,11 @@
 <?php
-	session_start();
+	
 	require_once __DIR__ . "/config.php";
     include DIR_UTIL . "sessionUtil.php";
-    include DIR_UTIL . "carrelloManager.php";
+    require_once DIR_UTIL . "carrelloManager.php";
 
     include __DIR__ . "/esca.php";
+    session_start();
     if (!isset($_SESSION['logged'])) {
     	exit();
     }
@@ -12,8 +13,15 @@
 		    header('Location: ./../index.php');
 		    exit;
     }
+     if (!isset($_SESSION['carrello'])) {
+    	$_SESSION['carrello']=Carrello::getIstanza();
+    }
+    $carrello=$_SESSION['carrello'];
     $escheDiTendenza= Esca::getTendenza();
-    global $carrello;
+    $esca= new Esca(Esca::getEsca());
+ 	$carrello->add($esca,2);
+ 	$carrello->add($esca,3);
+   	print_r($carrello);
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -26,14 +34,11 @@
 		<title>Bass Shop - Home</title>
 	</head>
 	<?php
-	/*	echo '<body onload="MovieLoader.init(); ';
-		echo 'MovieLoader.loadData(' . $searchType . ')">';*/
-
 		include DIR_LAYOUT . "menu.php";
 			
 		echo '<div id="content">';
 
-			include DIR_LAYOUT . "horizontal_menu.php";
+		include DIR_LAYOUT . "horizontal_menu.php";
 	?>	
 			<article data-fragment data-name="Seguiti">
 				<header><h3>Di Tendenza</h3></header>
@@ -52,7 +57,7 @@
         											echo "<p>{$esca['Descrizione']}</p>";
     											echo "</figcaption>";
     											echo "<label for='quanti'>Quantità</label><br>";
-    											echo"<input required max='10' min='0' title='Inserisci una quantità valida da 0 a 10' type='number' name='quanti' id='quanti' onclick='$carrello->add($esca)'>";
+    											echo"<input required max='10' min='0' title='Inserisci una quantità valida da 0 a 10' type='number' name='quanti' id='quanti' >";
 											echo "<input class= 'aggiungi' type='submit' value='Aggiungi al carrello'>";
 										echo "</a>";
 									echo "</li>";

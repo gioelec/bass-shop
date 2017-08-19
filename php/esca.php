@@ -11,19 +11,19 @@ class Esca {
 	private $lunghezza;
 
 
-	public function __construct($fields = array()) {
-		if($fields) {
-			$this->idItem = $fields['idItem'];
-			$this->prezzo = $fields['prezzo'];
-			$this->peso = $fields['peso'];
-			$this->lunghezza = $fields['lunghezza'];
-			$this->nome = $fields['nome'];
+	public function __construct($esca = array()) {
+		if($esca) {
+			$this->idItem = array_column($esca, 'idItem');
+			$this->prezzo = array_column($esca, 'Prezzo');
+			$this->peso = array_column($esca, 'Peso');
+			$this->lunghezza = array_column($esca, 'Lunghezza');
+			$this->nome = array_column($esca, 'Nome');
 		}
 	}
 
-	public function __wakeup() {
+	/*public function __wakeup() {
 		$this->refresh();
-	}
+	}*/
 
 	public function __set($field,$value) {
 		$this->$field = $value;
@@ -69,7 +69,7 @@ class Esca {
 	}
 	public static function getElencoEsche() {
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT * FROM items WHERE items.Tipo='e'  ORDER BY nome");
+		$stmnt = $bassShopDb->prepare("SELECT idItem,nome,prezzo,peso,lunghezza,immagine,descrizione FROM items WHERE items.Tipo='e'  ORDER BY nome");
 		checkQuery($stmnt);	
 		$stmnt->execute();
 		$result = $stmnt->get_result();
@@ -105,6 +105,13 @@ class Esca {
 		$result = $stmnt->get_result();
 		return toArray($result);
 	}
-	
+	public static function getEsca(){
+		global $bassShopDb;
+		$stmnt = $bassShopDb->prepare("SELECT * FROM items WHERE items.Tipo='e'  LIMIT 1");
+		checkQuery($stmnt);	
+		$stmnt->execute();
+		$result = $stmnt->get_result();
+		return toArray($result);
+	}	
 }
 

@@ -8,7 +8,7 @@
     require DIR_UTIL . "parametriDb.php"; 
     require "./cliente.php";
     
-    if(/*isset($_POST['submit']*/empty($_POST)===false){
+    if(empty($_POST)===false){
 		registra_cliente();
 	}
 	function registra_cliente(){  
@@ -29,40 +29,14 @@
 			echo "Username o email già esistenti";
 			return;
 		}
-	//	$user = User::read($newUserId); // RECUPERO L'UTENTE APPENA CREATO ED ESEGUO IL LOGIN
-	//	$_SESSION['user'] = $user;
-	//	$_SESSION['logged'] = true;
+		$cliente = Cliente::recuperaCliente($newUserId); // RECUPERO L'UTENTE APPENA CREATO ED ESEGUO IL LOGIN
+		$_SESSION['email'] = $cliente->__get('email');
+		$_SESSION['username']=$cliente->__get('username');
+		$_SESSION['logged'] = true;
+		$_SESSION['admin']=$cliente->__get('livello');
 		$bassShopDb->closeConnection();
-		setSession($_POST["username"], $newUserId);
 		header("Location: homepage.php");
 	}
-	/*if(/*isset($_POST['submit']empty($_POST)===false){
-		registra_cliente();
-	}
-	function registra_cliente(){  
-
-		global $bassShopDb;
-		if ($bassShopDb->connectionOK()) {
-			echo "morto";
-		    die("Connection failed: " . $conn->connect_error);
-		}
-
-		$stmt = $bassShopDb->prepare("INSERT INTO clienti (username, password, nome,cognome,email) VALUES (?, ?, ?,?,?)");
-		$stmt->bind_param("sssss", $username, $password,$nome,$cognome,$email);
-
-		$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-		$password =  filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-		$nome =  filter_var($_POST['nome'], FILTER_SANITIZE_STRING);
-		$cognome =  filter_var($_POST['cognome'], FILTER_SANITIZE_STRING);
-		$email =  filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-		echo "eseguo";
-
-		$stmt->execute();
-
-
-		$stmt->close();
-	}*/
-
 ?>
 
 <section id="sezione_registrazione">

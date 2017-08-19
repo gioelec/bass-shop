@@ -8,6 +8,7 @@ class Cliente{
 	private $nome;
 	private $cognome;
 	private $email;
+	private $livello;
 	public function __construct($fields = array()) {
 		if($fields) {
 			$this->username = $fields['username'];
@@ -15,6 +16,7 @@ class Cliente{
 			$this->email = $fields['email'];
 			$this->nome = $fields['nome'];
 			$this->cognome = $fields['cognome'];
+			$this->livello = 0;
 		}
 	}
 	public static function auth($username,$password) {
@@ -43,11 +45,11 @@ class Cliente{
 	}
 	public function create() {
 		global $bassShopDb;
-		if($this->exists($this->username,$this->email)!=0){
+		if($this->exists($this->username,$this->email)>0){
 			return -1;
 		}
 		$stmnt = $bassShopDb->prepare("INSERT INTO clienti(username,password,email,nome,cognome) VALUES(?,?,?,?,?)");
-	//	checkQuery($stmnt);
+		checkQuery($stmnt);
 		$stmnt->bind_param("sssss",$this->username,$this->password,$this->email,$this->nome,$this->cognome);
 		$stmnt->execute();
 		$this->idCliente = $bassShopDb->getConnection()->insert_id;
@@ -62,5 +64,18 @@ class Cliente{
 		$num = $stmnt->get_result()->num_rows;
 		return $num;
 	}
+	public static function recuperaCliente($id) {
+		global $bassShopDb;
+		$stmnt = $bassShopDb->prepare("SELECT * FROM clienti WHERE idClienti=?");
+		checkQuery($stmnt);
+		$stmnt->bind_param("i",$id);
+		$stmnt->execute();
+		$result = $stmnt->get_result();
+		if($result->num_rows == 0) {
+			throw new Exception("Nessun utente trovato");
+		}
+		$cliente = $result->fetch_object('Cliente');
 
+		return $cliente;
+	}
 }

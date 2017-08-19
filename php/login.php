@@ -14,7 +14,7 @@
 		$_SESSION['email'] = $cliente->__get('email');
 		$_SESSION['username']=$username;
 		$_SESSION['logged'] = true;
-		print_r($_SESSION);
+		$_SESSION['admin']=$cliente->__get('livello');
 		header('location: ./homepage.php');
 	}
 	else {

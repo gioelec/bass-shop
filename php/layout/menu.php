@@ -17,12 +17,16 @@
 					<span class="menu_item_img profile_img"></span>
 					<span>Profile</span>
 				</a>
-	 		<li>
-	 			<a href="">
-					<div class="menu_item_img settings_img"></div>	
-					<span>Settings</span>
-				</a>
-	 	</ul>
+				<?php 
+					if ($_SESSION['admin']==true) {
+						echo "<li>";
+		 				echo "<a href='./admin.php'>";
+						echo"<div class='menu_item_img settings_img'></div>	";
+						echo "<span>Admin</span>";
+						echo"</a>";
+					}
+	 			?>
+	 	</ul> 	
 	</div>
 	<div id="movie_menu" class="menu_single_section">
 		<ul>	

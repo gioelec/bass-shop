@@ -6,6 +6,7 @@
 		    header('Location: ./php/homepage.php');
 		    exit;
     }
+    $GLOBALS['carrello'] = null;
 ?>
 <!DOCTYPE html>
 <html lang="it">
