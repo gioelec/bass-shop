@@ -51,6 +51,7 @@
 					<ul class="Lista">
 						<?php
 							foreach($esche as $esca) {
+								$idEsca=$esca['idItem'];
 								echo"<form>";
 								echo "<ul class='pubblicizza'>";
 									echo "<li>";
@@ -61,10 +62,11 @@
         											echo "<p>{$esca['Descrizione']}</p>";
     											echo "</figcaption>";
     											echo "<label for='quanti'>Quantità</label><br>";
-    											echo"<input required max='10' min='0' title='Inserisci una quantità valida da 0 a 10' type='number' name='quanti' id='quanti'>";
-											echo "<input class= 'aggiungi' type='button' value='Aggiungi al carrello' onclick='aggiungi()''>";
-											echo "<input type='hidden' name='nome' id='nome' value={$esca['Nome']}>";
-											echo "<input type='hidden' name='prezzo' id='prezzo' value={$esca['Prezzo']}>";
+    											echo"<input required max='10' min='0' title='Inserisci una quantità valida da 0 a 10' type='number' name='quanti' id='quanti.$idEsca'>";
+											echo "<input class= 'aggiungi' type='button' value='Aggiungi al carrello' onclick='aggiungi({$esca['idItem']})''>";
+											echo "<input type='hidden' name='nome' id='nome.$idEsca' value={$esca['Nome']}>";
+											echo "<input type='hidden' name='prezzo' id='prezzo.$idEsca' value={$esca['Prezzo']}>";
+											echo "nome.$idEsca";
 
 										echo "</a>";
 									echo "</li>";
