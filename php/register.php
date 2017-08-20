@@ -38,7 +38,13 @@
 		header("Location: homepage.php");
 	}
 ?>
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Bass Shop - Registrazione</title>
+		<script type="text/javascript" src="../js/ajax/cercaUsernameUtilizzato.js"></script>
+	</head>
 <section id="sezione_registrazione">
 	<header>
 		<h1>Registrazione</h1>
@@ -46,12 +52,12 @@
 	</header>
 		<form id="registerForm" method="POST" action="./register.php" >
 			<div id="cA">
-				<label id="nameW" for="name">Nome</label><br>
+				<label id="nameW" for="nome">Nome</label><br>
 				<input type="text" pattern="^[a-zA-Zìàèò ,.'-]+$" title="Inserisci un nome valido"  id="nome" name="nome"  required />
-				<label id="surnameW"  for="surname">Cognome</label><br>
+				<label id="surnameW"  for="cognome">Cognome</label><br>
 				<input type="text" title="Inserisci un cognome valido" pattern="^[a-zA-Zìàèò ,.'-]+$"   id="cognome" name="cognome" required />
-				<label for="usernameR">Username</label>
-				<input data-query="./php/async/exists.php?label=" data-query-error="Username già esistente" pattern="[a-zA-Z0-9_-]{6,10}"  title="Inserisci tra i 6 e i 10 caratteri,numeri o i simboli '-_'" type="text" name="username" id="usernameR" required />
+				<label for="username">Username</label>
+				<input onfocusout="ajaxHandler();" data-query-error="Username già esistente" pattern="[a-zA-Z0-9_-]{6,10}"  title="Inserisci tra i 6 e i 10 caratteri,numeri o i simboli '-_'" type="text" name="username" id="username" required autofocus />
 				<label for="email">Email</label><br>
 				<input pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Inserisci un email corretta: email@provider.ext" type="email"  id="email" name="email" required>
 				<label  for="password">Password</label>

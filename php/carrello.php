@@ -18,7 +18,7 @@
     $carrello=$_SESSION['carrello'];
     $totale= $carrello->getTotale();
     $items= $carrello->getItems();
-    $quantita=$carrello->getQt();
+ //   $quantita=$carrello->getQt();
 
 
 ?>
@@ -53,15 +53,16 @@
 							foreach($items as $item){
 								$nome=$item->__get('nome');
 								$prezzo=$item->__get('prezzo');
-								$totale+=$prezzo*$quantita[$i];
-								echo "<div>";	
+								$quantita=$item->__get('quantita');
+								$totale+=$prezzo*$quantita;
+								echo "<div class='emptyResult'>";	
 									echo "<label> $nome </label>";
 									echo "<label> $prezzo </label>";
-									echo "<label> $quantita[$i] </label>";
+									echo "<label> $quantita</label>";
 								echo "</div>";
 								$i++;								
 							}
-							echo "<h2>TOTALE: $totale</h2>";
+							echo "<h2 class='emptyResult'>TOTALE: $totale</h2>";
 						?>
 					</ul>
 			</article>

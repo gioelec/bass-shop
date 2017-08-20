@@ -55,11 +55,20 @@ class Cliente{
 		$this->idCliente = $bassShopDb->getConnection()->insert_id;
 		return $this->idCliente;
 	}
-	public static function exists($username,$email){
+	public static function exists_mail($email){
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT * FROM clienti WHERE  BINARY username = ? OR email = ?");
+		$stmnt = $bassShopDb->prepare("SELECT * FROM clienti WHERE  BINARY email = ?");
 		//checkQuery($stmnt);	
-		$stmnt->bind_param("ss",$username,$email);
+		$stmnt->bind_param("s",$email);
+		$stmnt->execute();
+		$num = $stmnt->get_result()->num_rows;
+		return $num;
+	}
+	public static function exists_user($username){
+		global $bassShopDb;
+		$stmnt = $bassShopDb->prepare("SELECT * FROM clienti WHERE  BINARY username = ? ");
+		//checkQuery($stmnt);	
+		$stmnt->bind_param("s",$username);
 		$stmnt->execute();
 		$num = $stmnt->get_result()->num_rows;
 		return $num;

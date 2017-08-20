@@ -1,9 +1,10 @@
 <?php
-	session_start();
+	
 	require_once __DIR__ . "/config.php";
     include DIR_UTIL . "sessionUtil.php";
 
     include __DIR__ . "/esca.php";
+    session_start();
     if (!isset($_SESSION['logged'])) {
     	exit();
     }
@@ -13,6 +14,10 @@
     }
     $email = $_SESSION['email'];
     $ultimiAcquisti= Esca::getLatest($email);
+     if (!isset($_SESSION['carrello'])) {
+    	$_SESSION['carrello']=Carrello::getIstanza();
+    }
+    $carrello=$_SESSION['carrello'];
 ?>
 <!DOCTYPE html>
 <html lang="it">
