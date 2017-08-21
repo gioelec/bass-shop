@@ -47,4 +47,12 @@
 				</a>
 		</ul>
 	</div>
+	<div id="search" class="menu_single_section">
+		<form name="form" method="post" action="../php/search.php">
+			<input type="text" name="search" placeholder="ricerca cosa vuoi acquistare">
+			<input type="submit" value="cerca">
+			
+		</form>
+	</div>
+	
 </div>
