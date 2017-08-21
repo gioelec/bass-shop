@@ -23,3 +23,17 @@ label:after { content: ": " }
 input {
 	align-self: right;
 }
+.sign_in_error{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin: auto;
+	width: 75%;
+	position: relative;
+	background-color: rgba(255, 0, 0, 0.2);
+	border: 1px solid rgba(255, 0, 0, 0.8);
+	border-radius: 4px;
+	color: rgb(132, 3, 3);
+	text-align: center;
+	text-shadow: 0 0 3px rgb(255, 255, 255);
+	padding: 5px;
+}

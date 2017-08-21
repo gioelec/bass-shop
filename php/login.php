@@ -7,19 +7,26 @@
 	session_start();
 	$username = (isset($_POST['username']))? $_POST['username']: "";
 	$password = (isset($_POST['password']))? $_POST['password']: "";
-	$cliente = Cliente::auth($username,$password);
-	$bassShopDb->closeConnection();
-
-	if($cliente) {
-		$_SESSION['email'] = $cliente->__get('email');
-		$_SESSION['username']=$username;
-		$_SESSION['logged'] = true;
-		$_SESSION['admin']=$cliente->__get('livello');
+	$errorMessage = login($username, $password);
+	if($errorMessage === null)
 		header('location: ./homepage.php');
-	}
-	else {
-		echo "username o password errati";
-	}
+	else
+		header('location: ./../index.php?errorMessage=' . $errorMessage );
 
+	function login($username,$password)
+	{
+		global $bassShopDb;
+		$cliente = Cliente::auth($username,$password);
+		$bassShopDb->closeConnection();
+		if($cliente) {
+			$_SESSION['email'] = $cliente->__get('email');
+			$_SESSION['username']=$username;
+			$_SESSION['logged'] = true;
+			$_SESSION['admin']=$cliente->__get('livello');
+			return null;
+		}
+		else
+			return 'Username o password errati';
+	}	
 ?>
    
