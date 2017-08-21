@@ -92,12 +92,13 @@ class Esca {
 	}
 	public static function getLatest($id){
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT DISTINCT(items.nome) as Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione,items.idItem as idItem
-				FROM items INNER JOIN acquisti
-				 INNER JOIN clienti
-				 ON items.idItem=acquisti.idItem and acquisti.idCliente=clienti.idclienti
-				 WHERE clienti.email=?
-				 ORDER BY Data DESC");
+		$stmnt = $bassShopDb->prepare("SELECT DISTINCT(Nome),Prezzo,Peso,Lunghezza,Immagine,Descrizione,idItem
+			FROM (SELECT items.nome as Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione,items.idItem as 		idItem,data 
+					FROM items INNER JOIN acquisti
+				 	INNER JOIN clienti
+				 	ON items.idItem=acquisti.idItem and acquisti.idCliente=clienti.idclienti
+				 	WHERE clienti.email=?
+				 	ORDER BY Data DESC) as D");
 		$stmnt->bind_param("s",$id);
 		checkQuery($stmnt);	
 		$stmnt->execute();
@@ -106,7 +107,7 @@ class Esca {
 	}
 	public static function getCanne(){
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione FROM items WHERE items.Tipo='c'  ORDER BY nome");
+		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione FROM items WHERE items.Tipo='c'  ORDER BY nome");
 		checkQuery($stmnt);	
 		$stmnt->execute();
 		$result = $stmnt->get_result();

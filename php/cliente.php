@@ -87,4 +87,16 @@ class Cliente{
 
 		return $cliente;
 	}
+	public static function getId($mail){
+		global $bassShopDb;
+		$stmnt = $bassShopDb->prepare("SELECT idClienti FROM clienti WHERE email=?");
+		checkQuery($stmnt);
+		$stmnt->bind_param("s",$mail);
+		$stmnt->execute();
+		$result = $stmnt->get_result();
+		if($result->num_rows == 0) {
+			throw new Exception("Nessun utente trovato");
+		}
+		return $result;
+	}
 }

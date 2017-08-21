@@ -7,7 +7,7 @@
 	    	$_SESSION['carrello']=Carrello::getIstanza();
 	}
 	print_r($_POST);
-	$item= new elementoCarrello($_GET['quanti'],$_GET['nome'],$_GET['prezzo']);
+	$item= new elementoCarrello($_GET['quanti'],$_GET['nome'],$_GET['prezzo'],$_GET['idEsca']);
 	$carrello=$_SESSION['carrello'];
 	$carrello->add($item);/*
 	$esca =$_POST['esca'];

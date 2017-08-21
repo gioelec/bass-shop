@@ -1,7 +1,5 @@
-function aggiungi(id){
-
-   //var id = <?php echo json_encode($idEsca); ?>;
-    alert("nome."+id)
+function conferma(){
+    
     var xmlHttp;
     try{xmlHttp = new XMLHttpRequest();}
     catch(e){
@@ -14,17 +12,11 @@ function aggiungi(id){
             }
         }
     }
-
-    quanti = encodeURIComponent(document.getElementById("quanti."+id).value);
-    nome = encodeURIComponent(document.getElementById("nome."+id).value);
-    prezzo = encodeURIComponent(document.getElementById("prezzo."+id).value);
-    idEsca = encodeURIComponent(id);
-   alert(quanti);
-    alert(nome);
-    xmlHttp.open("GET", "aggiungi.php?quanti="+quanti+"&nome="+nome+"&prezzo="+prezzo+"&idEsca="+idEsca, true);
+    xmlHttp.open("GET", "conferma.php", true);
     xmlHttp.onreadystatechange = useHttpResponse;
     xmlHttp.send(null);
-    
+  //  window.location.href = "../homepage.php";
+    window.location.href = "../php/homepage.php";
 
     function useHttpResponse(){
         //maiStato = true;

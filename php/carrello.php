@@ -29,7 +29,9 @@
     	<meta name = "author" content = "PWEB">
     	<meta name = "keywords" content = "game">
 		<link rel="stylesheet" href="./../css/carrello.css" type="text/css" media="screen">
-		<link rel="icon" href = "./immagini/icon2.jpg" sizes="32x32" type="image/jpg"> 
+		<link rel="icon" href = "./immagini/icon2.jpg" sizes="32x32" type="image/jpg">
+		<script type="text/javascript" src="../js/ajax/conferma.js"></script>
+ 
 		<title>Bass Shop - Home</title>
 	</head>
 	<?php
@@ -63,8 +65,10 @@
 								$i++;								
 							}
 							echo "<h2 class='emptyResult'>TOTALE: $totale</h2>";
+							echo "<input class= 'conferma' type='button' value='Conferma acquisti' onclick='conferma()''>";
 						?>
 					</ul>
+
 			</article>
 		</div>
 	</body>

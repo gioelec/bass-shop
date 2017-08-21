@@ -34,4 +34,20 @@ class Carrello {
 	public function getItems(){
 		return $this->array;
 	}
+	public function conferma($id){
+		global $bassShopDb;
+		$stmnt = $bassShopDb->prepare("INSERT INTO acquisti (idCliente,idItem,quantita)
+			VALUES (?,?,?)");
+			checkQuery($stmnt);
+		foreach ($this->array as $elem) {
+			$idEsca=$elem->__get('idEsca');
+			$quantita=$elem->__get('quantita');
+			$stmnt->bind_param("iii",$id,$idEsca,$quantita);
+			$stmnt->execute();
+		}
+		$this->totale=0;
+		unset($this->array);
+		$this->array=array();
+		
+	}
 }

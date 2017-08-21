@@ -66,8 +66,6 @@
 											echo "<input class= 'aggiungi' type='button' value='Aggiungi al carrello' onclick='aggiungi({$esca['idItem']})''>";
 											echo "<input type='hidden' name='nome' id='nome.$idEsca' value={$esca['Nome']}>";
 											echo "<input type='hidden' name='prezzo' id='prezzo.$idEsca' value={$esca['Prezzo']}>";
-											echo "nome.$idEsca";
-
 										echo "</a>";
 									echo "</li>";
 								echo "</ul>";

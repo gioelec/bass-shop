@@ -49,8 +49,28 @@ body{
 .emptyResult{
 	margin: auto;
     width: 50%;
-    border: 3px solid green;
+    border: 3px solid black;
     padding: 10px;
 	border-style: dotted;
 	text-align: center;
+}
+#conferma {
+  max-width:500px;
+  margin-left:300px;
+  margin-right:auto;
+  display:block;
+  background-color:white;
+  border:1px solid tomato;
+  color:tomato;
+  padding:1em;
+  margin-top:1em;
+  text-align:center;
+  text-decoration:none;
+  transition: border,background-color 0.2s ease-in-out;
+  cursor:pointer;
+}
+#conferma:hover {
+  background-color:tomato;
+  color:white;
+  border:1px solid white;
 }
