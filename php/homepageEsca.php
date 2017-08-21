@@ -13,7 +13,7 @@
 		    exit;
     }
 
-    $email = $_SESSION['email'];
+//$email = $_SESSION['email'];
 	$esche= Esca::getElencoEsche();
 	 if (!isset($_SESSION['carrello'])) {
     	$_SESSION['carrello']=Carrello::getIstanza();
@@ -44,9 +44,9 @@
 	?>	
 		
 			<article data-fragment data-name="Seguiti">
-				<header><h3>Di Tendenza</h3></header>
+				<header><h3>Esche</h3></header>
 					<?php
-						if(!sizeof($esche)) echo "<p class='emptyResult'>Non hai ancora effettuato acquisti</p>";
+						if(!sizeof($esche)) echo "<p class='emptyResult'>Non abbiamo esche da vendere</p>";
 					?>
 					<ul class="Lista">
 						<?php
@@ -57,7 +57,9 @@
 									echo "<li>";
 										echo "<a>";
 										echo "<h1>{$esca['Nome']}</h1> ";
-											echo "<img id= 'vendita' alt='cover' src={$esca['Immagine']}>";
+											echo "<a href='paginaDettagliata.php?idEsca=$idEsca'>";
+											echo "<img id= 'vendita' alt='cover' src={$esca['Immagine']} >";//>";
+											echo "</a>";
 											  	echo "<figcaption>";
         											echo "<p>{$esca['Descrizione']}</p>";
     											echo "</figcaption>";

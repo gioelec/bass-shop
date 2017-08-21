@@ -1,3 +1,17 @@
+<?php
+	require_once __DIR__ . "/config.php";
+    include DIR_UTIL . "sessionUtil.php";
+    include __DIR__ . "/esca.php";
+    
+    session_start();
+    if (!isset($_SESSION['logged'])) {
+    	exit();
+    }
+  	if ($_SESSION['logged']==false|| $_SESSION['admin']==0){
+		    header('Location: ./../index.php');
+		    exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="it">
 	<main>
