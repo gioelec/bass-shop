@@ -11,7 +11,7 @@
 	//print_r($esca);
 	
 	if(!$cover['error']) {  // SE LA COPERTINA E' STATA CARICATA CON SUCCESSO LA SALVO 
-		echo "iffff";
+		//echo "iffff";
 		$coverId = $esca->create($cover,1);
 		$_POST['cover'] = $coverId;
 	}

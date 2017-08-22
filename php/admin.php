@@ -14,6 +14,15 @@
 ?>
 <!DOCTYPE html>
 <html lang="it">
+	<head>
+		<meta charset="utf-8"> 
+    	<meta name = "author" content = "PWEB">
+    	<meta name = "keywords" content = "game">
+		<link rel="stylesheet" href="../css/register.css" type="text/css" media="screen">
+		<!--<script type="text/javascript" src="./js/effects.js"></script>-->
+		<link rel="icon" href = "../immagini/icon2.jpg" sizes="32x32" type="image/jpg"> 	
+		<title>Bass Shop - Upload</title>
+	</head>
 	<main>
 		<header><h2>Inserimento Elemento</header>
 
@@ -22,14 +31,17 @@
 				<header><h3>Inserisci le informazioni principali</h3></header>
 
 					<div class="left">
-						<label for="cover">Copertina (clicca per cambiare)</label>
+						
 						<div id="uploader" class="fileInput pictureInput">
-							<img src="" alt="cover picture">
+							<!--<label for="cover">Scegli</label>
+							<img src="../immagini/icon2.jpg" alt="cover picture">-->
 							<input type="file" name="cover" id="cover"/>
 							<!--<progress max="100" value="0"></progress>-->
 						</div><br>
-						<label for="Nome">Titolo</label><br>
-						<input size="50"  pattern="([a-zA-Z0-9]( ){0,1}){4,50}" title="Inserisci un titolo: da 4 a 50 caratteri o numeri"  class="light" type="text" name="Nome" id="Nome" required>
+						<div>
+							<label for="Nome">Titolo</label><br>
+							<input size="50"  pattern="([a-zA-Z0-9]( ){0,1}){4,50}" title="Inserisci un titolo: da 4 a 50 caratteri o numeri"  class="light" type="text" name="Nome" id="Nome" required>
+						</div>
 						<label for="Prezzo">Prezzo</label><br>
 						<input required max="500" min="0" title="Inserisci un prezzo valido: da 0 a 500" class="light" type="number" name="Prezzo" id="Prezzo">
 

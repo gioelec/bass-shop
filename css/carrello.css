@@ -54,14 +54,14 @@ body{
 	border-style: dotted;
 	text-align: center;
 }
-#conferma {
+.conferma {
   max-width:500px;
-  margin-left:300px;
+  margin-left:auto;
   margin-right:auto;
   display:block;
   background-color:white;
-  border:1px solid tomato;
-  color:tomato;
+  border:1px solid blue;
+  color:blue;
   padding:1em;
   margin-top:1em;
   text-align:center;
@@ -69,8 +69,8 @@ body{
   transition: border,background-color 0.2s ease-in-out;
   cursor:pointer;
 }
-#conferma:hover {
-  background-color:tomato;
+.conferma:hover {
+  background-color:blue;
   color:white;
   border:1px solid white;
 }

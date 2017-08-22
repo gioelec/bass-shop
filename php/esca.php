@@ -22,7 +22,7 @@ class Esca {
 			$this->lunghezza = $fields ['Lunghezza'];
 			$this->nome = $fields ['Nome'];
 			//$this->immagine= array_column($fields, ['Immagine']);
-			$this->tipo= "e";
+			$this->tipo= $fields['Tipo'];
 			$this->descrizione= $fields ['Descrizione'];
 		}
 	}

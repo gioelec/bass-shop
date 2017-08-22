@@ -7,6 +7,8 @@ body{
 	margin-left: 142px;
 	text-align: center;
 	padding-right: 30px;
+	margin-top: 0px;
+	display: inline-block;
 }
 
 #content_nav a{
@@ -60,4 +62,45 @@ body{
 
 figcaption{
 	align: right;
+}
+.nome{
+	text-align: left;
+	color: blue;
+}
+aside {
+  background-color:white;
+  height: 100%;
+  width:300px;
+  padding:2%;
+  position:fixed;
+  top:0;
+  bottom:0;
+  box-sizing:border-box;
+  text-align: center;
+  box-shadow:1px 1px 1px 1px rgba(0,0,0,0.33);
+  display: none;
+}
+
+aside#search {
+  transition: left 0.25s ease-in-out;
+  z-index:10;
+}
+.closeButton {
+  display:block;
+  position:absolute;
+  font-size: 15px;
+  top:10px;
+  left:calc(100% - 30px);
+  width:20px;
+  height:20px;
+  background-image: url("../immagini/close.png");
+  background-size:cover;
+  color:#3F51B5;
+  text-decoration:none;
+  transition: all 0.3s ease-in-out;
+  opacity:0.66;
+}
+
+.closeButton:hover {
+  transform:rotate(360deg);
 }

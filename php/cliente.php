@@ -45,7 +45,7 @@ class Cliente{
 	}
 	public function create() {
 		global $bassShopDb;
-		if($this->exists($this->username,$this->email)>0){
+		if(($this->exists_mail($this->username))>0||($this->exists_user($this->username))>0){
 			return -1;
 		}
 		$stmnt = $bassShopDb->prepare("INSERT INTO clienti(username,password,email,nome,cognome) VALUES(?,?,?,?,?)");
