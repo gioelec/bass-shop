@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Bass Shop - Registrazione</title>
-		<script type="text/javascript" src="../js/registrazione.js"></script>
+		<script type="text/javascript" src="./../js/ajax/exists.js"></script>
 		<link rel="stylesheet" href="./../css/register.css" type="text/css" media="screen">
 	</head>
 		<div id="cA">
@@ -13,17 +13,17 @@
 				<h1>Registrazione</h1>
 				<div class="divForm">
 					<input type="text" title="Inserisci un nome valido"  id="nome" name="nome" class="light wide"  placeholder="Name" pattern="^[a-zA-Zìàèò ,.'-]+$" required />
-					<div id="name_error" class="error"></div>
+					<div id="name_error" class="error" autofocus></div>
 				</div>
 				<div class="divForm">
 					<input pattern="^[a-zA-Zìàèò ,.'-]+$" type="text" title="Inserisci un cognome valido" id="cognome" name="cognome" class="light wide" placeholder="Surname" required /><div id="surname_error" class="error"></div>
 				</div>
 				<div class="divForm"> 
-					<input placeholder="Username" pattern="[a-zA-Z0-9_-]{6,10}" required  title="Inserisci tra i 6 e i 10 caratteri,numeri o i simboli '-_'" type="text" name="username" id="username" class="light wide" />
+					<input placeholder="Username" pattern="[a-zA-Z0-9_-]{6,10}" required  title="Inserisci tra i 6 e i 10 caratteri,numeri o i simboli '-_'" type="text" name="username" id="username" class="light wide" onfocusout=" existsUser();"/>
 					<div id="username_error" class="error"></div>
 				</div>
 				<div class="divForm"> 
-					<input placeholder="nome@email.com" title="Inserisci un email corretta: email@provider.ext" type="email"  id="email" name="email" class="light wide" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+					<input placeholder="nome@email.com" title="Inserisci un email corretta: email@provider.ext" type="email"  id="email" name="email" class="light wide" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required onfocusout="existsMail();" >
 					<div id="mail_error" class="error"></div>
 				</div>
 				<div class="divForm">
