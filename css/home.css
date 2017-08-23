@@ -104,3 +104,32 @@ aside#search {
 .closeButton:hover {
   transform:rotate(360deg);
 }
+
+
+
+
+ul.risultati{
+ width:100%; 
+ border:2px solid #bcc;
+ height:auto;
+ padding:0px;
+ margin:0px;
+}
+ul.risultati li, 
+ul.risultati li a{
+ background-color:#fff;
+ color:#000;
+ font-size:18px; 
+ font-family:arial;
+ font-weight:normal;
+ padding:0 10px;
+ margin:0px;
+ line-height:50px; 
+ display:block;
+}
+ul.risultati li:hover,
+ul.risultati li a:hover{
+ background-color:#bcc;
+ color:#000;
+ text-decoration:normal;
+}

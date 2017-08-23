@@ -12,11 +12,12 @@
 			<form id="registerForm" method="POST" action="./registraCliente.php" onsubmit="return Validate()" >
 				<h1>Registrazione</h1>
 				<div class="divForm">
-					<input type="text" title="Inserisci un nome valido"  id="nome" name="nome" class="light wide"  placeholder="Name" pattern="^[a-zA-Zìàèò ,.'-]+$" required />
-					<div id="name_error" class="error" autofocus></div>
+					<input type="text" title="Inserisci un nome valido"  id="nome" name="nome" class="light wide"  placeholder="Name" pattern="^[a-zA-Zìàèò ,.'-]+$" onfocusout="validateName('nome');"  required />
+					<div id="nome_error" class="error" ></div>
 				</div>
 				<div class="divForm">
-					<input pattern="^[a-zA-Zìàèò ,.'-]+$" type="text" title="Inserisci un cognome valido" id="cognome" name="cognome" class="light wide" placeholder="Surname" required /><div id="surname_error" class="error"></div>
+					<input pattern="^[a-zA-Zìàèò ,.'-]+$" type="text" title="Inserisci un cognome valido" id="cognome" name="cognome" class="light wide" placeholder="Surname" required onfocusout="validateName('cognome');"/>
+					<div id="cognome_error" class="error" "></div>
 				</div>
 				<div class="divForm"> 
 					<input placeholder="Username" pattern="[a-zA-Z0-9_-]{6,10}" required  title="Inserisci tra i 6 e i 10 caratteri,numeri o i simboli '-_'" type="text" name="username" id="username" class="light wide" onfocusout=" existsUser();"/>
