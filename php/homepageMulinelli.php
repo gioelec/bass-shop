@@ -17,6 +17,7 @@
     	$_SESSION['carrello']=Carrello::getIstanza();
     }
     $carrello=$_SESSION['carrello'];
+    $_SESSION['elenco']=$muli;
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -45,33 +46,9 @@
 			<article data-fragment data-name="Seguiti">
 				<header><h3>Di Tendenza</h3></header>
 					<?php
-						if(!sizeof($muli)) echo "<p class='emptyResult'>Non abbiamo mulinelli in vendita, ci scusiamo per l'inconveniente</p>";
+						if(!sizeof($muli)) echo "<p class='emptyResult'>Non abbiamo mulinelli in vendita</p>";
+						include __DIR__ . "/scroll.php";
 					?>
-					<ul class="Lista">
-						<?php
-							foreach($muli as $esca) {
-								$idEsca=$esca['idItem'];
-								echo "<ul class='pubblicizza'>";
-									echo "<li>";
-										echo "<a>";
-										echo "<h1 class= 'nome'>{$esca['Nome']}</h1> ";
-											echo "<a href='paginaDettagliata.php?idEsca=$idEsca'>";
-											echo "<img class= 'immagine' alt='cover' src={$esca['Immagine']} >";//>";
-											echo "</a>";
-											  	echo "<figcaption>";
-        											echo "<p>{$esca['Descrizione']}</p>";
-    											echo "</figcaption>";
-    											echo "<label for='quanti'>Quantità</label><br>";
-    											echo"<input required max='10' min='0' title='Inserisci una quantità valida da 0 a 10' type='number' name='quanti' id='quanti.$idEsca'>";
-											echo "<input class= 'conferma' type='button' value='Aggiungi al carrello' onclick='aggiungi({$esca['idItem']})''>";
-											echo "<input type='hidden' name='nome' id='nome.$idEsca' value={$esca['Nome']}>";
-											echo "<input type='hidden' name='prezzo' id='prezzo.$idEsca' value={$esca['Prezzo']}>";
-										echo "</a>";
-									echo "</li>";
-								echo "</ul>";									
-							}
-						?>
-					</ul>
 			</article>
 		</div>
 	</body>

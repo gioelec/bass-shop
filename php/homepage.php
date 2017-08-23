@@ -17,14 +17,7 @@
     }
     $carrello=$_SESSION['carrello'];
     $escheDiTendenza= Esca::getTendenza();
-	//$mail=$_SESSION['email'];
-	//echo $mail;
-   // $esca= new Esca($escheDiTendenza[0]);
-   // print_r($esca);
-
- 	
- 	//$carrello->add($esca,3);
-   //	print_r($carrello);
+    $_SESSION['elenco']=$escheDiTendenza;
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -41,43 +34,15 @@
 	</head>
 	<?php
 		include DIR_LAYOUT . "menu.php";
-			
-		echo '<div id="content">';
-
 		include DIR_LAYOUT . "horizontal_menu.php";
 	?>	
 			<article data-fragment data-name="Seguiti">
 				<header><h3>Di Tendenza</h3></header>
 					<?php
 						if(!sizeof($escheDiTendenza)) echo "<p class='emptyResult'>Non vi sono Esche di Tendenza</p>";
+						include __DIR__ . "/scroll.php";
 					?>
-					<ul class="Lista">
-						<?php
-							foreach($escheDiTendenza as $esca) {
-								$idEsca=$esca['idItem'];
-								echo"<form>";
-								echo "<ul class='pubblicizza'>";
-									echo "<li>";
-										echo "<a>";
-										echo "<h1 class= 'nome'>{$esca['Nome']}</h1> ";
-											echo "<a href='paginaDettagliata.php?idEsca=$idEsca'>";
-											echo "<img id= 'vendita' alt='cover' src={$esca['Immagine']} >";//>";
-											echo "</a>";
-											  	echo "<figcaption>";
-        											echo "<p>{$esca['Descrizione']}</p>";
-    											echo "</figcaption>";
-    											echo "<label for='quanti'>Quantità</label><br>";
-    											echo"<input required max='10' min='0' title='Inserisci una quantità valida da 0 a 10' type='number' name='quanti' id='quanti.$idEsca'>";
-											echo "<input class= 'conferma' type='button' value='Aggiungi al carrello' onclick='aggiungi({$esca['idItem']})''>";
-											echo "<input type='hidden' name='nome' id='nome.$idEsca' value={$esca['Nome']}>";
-											echo "<input type='hidden' name='prezzo' id='prezzo.$idEsca' value={$esca['Prezzo']}>";
-										echo "</a>";
-									echo "</li>";
-								echo "</ul>";
-								echo "</form>";										
-							}
-						?>
-					</ul>
+					
 			</article>
 		</div>
 	</body>
