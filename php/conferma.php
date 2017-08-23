@@ -9,6 +9,7 @@
 	$carrello=$_SESSION['carrello'];
 	$mail=$_SESSION['email'];
 	$id= Cliente::getId($mail);
-	$carrello->conferma($id);
+	$idc=$id[0]['idClienti'];
+	$carrello->conferma($idc);
 	//header("Location: ./homepage.php");
 ?>

@@ -5,6 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Bass Shop - Registrazione</title>
+		<script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>
 		<script type="text/javascript" src="./../js/ajax/exists.js"></script>
 		<link rel="stylesheet" href="./../css/register.css" type="text/css" media="screen">
 	</head>

@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="./../css/home.css" type="text/css" media="screen">
         <link rel="stylesheet" href="./../css/carrello.css" type="text/css" media="screen">
         <link rel="icon" href = "./immagini/icon2.jpg" sizes="32x32" type="image/jpg"> 
+        <script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>
         <script type="text/javascript" src="../js/ajax/evadi.js"></script>
         <title>Bass Shop - Ordini</title>
     </head>
@@ -54,7 +55,7 @@
                                     echo "<li >";
                                        //echo "<div>";
                                         echo "<span >";//
-                                        echo "<p>Item: {$esca['Nome']}  Quantita: {$esca['idItem']} Prezzo: {$esca['Prezzo']} Nome, Cognome cliente: {$esca['nome']}, {$esca['cognome']}</p> ";
+                                        echo "<p>Item: {$esca['Nome']}  Quantita: {$esca['idItem']} Prezzo: {$esca['Prezzo']} Nome, Cognome cliente: {$esca['nome']}, {$esca['cognome']},$idAcquisto </p> ";
                                        // echo "<span >{$esca['idItem']}</span> ";
                                        // echo "<span >{$esca['quantita']}</span> ";
                                        // echo "<span >{$esca['Prezzo']}</span> ";

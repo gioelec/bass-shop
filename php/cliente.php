@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . "/config.php";
 require_once DIR_UTIL . "bassShopDbManager.php";
+require_once DIR_UTIL . "sessionUtil.php";
 class Cliente{
 	private $idCliente;
 	private $username;
@@ -97,6 +98,6 @@ class Cliente{
 		if($result->num_rows == 0) {
 			throw new Exception("Nessun utente trovato");
 		}
-		return $result;
+		return toArray($result);
 	}
 }

@@ -24,6 +24,7 @@
 		<meta charset="utf-8"> 
     	<meta name = "author" content = "PWEB">
     	<meta name = "keywords" content = "game">
+		<script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>		
 		<script type="text/javascript" src="../js/ajax/aggiungi.js"></script>
 		<link rel="stylesheet" href="./../css/home.css" type="text/css" media="screen">
 		<link rel="icon" href = "./immagini/icon2.jpg" sizes="32x32" type="image/jpg"> 
