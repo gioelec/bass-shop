@@ -7,6 +7,8 @@ function conferma(){
 }
 function rimuovi(item,sub,totale){
 	var newtot= totale-sub;
+	alert("sub "+ sub);
+	alert(newtot);
 	var id = encodeURIComponent(item);
 	var row = document.getElementById("row."+item);
 	document.getElementById("totale").textContent="TOTALE: "+newtot;

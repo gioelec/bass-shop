@@ -20,7 +20,7 @@
     	$_SESSION['carrello']=Carrello::getIstanza();
     }
     $carrello=$_SESSION['carrello'];
-    $totale= $carrello->getTotale();
+   // $totale= $carrello->getTotale();
     $items= $carrello->getItems();
  //   $quantita=$carrello->getQt();
 
@@ -50,12 +50,11 @@
 			<article data-fragment data-name="Seguiti">
 				<header><h3>Carrello</h3></header>
 					<?php
-						if($totale<=0) echo "<p class='emptyResult'>Attualmente non hai niente nel carrello</p>";
+						/*if($totale==0) echo "<p class='emptyResult'>Attualmente non hai niente nel carrello</p>";*/
 						$totale=0;
 						echo"<table id='tabella' class='Lista'>";
 							$tot=$carrello->getTotale();
 							$i=0;
-							if ($tot>0) {
 								echo"<tr>";
 									echo"<th>Nome Articolo</th>";
 									echo"<th>Prezzo Singolo</th>";
@@ -82,14 +81,12 @@
 								echo "<tr id='lastrow'>";
 									echo "<td colspan='5' id='totale'><h2>TOTALE: $totale</h2></td>";
 								echo"</tr>";
-							}
 							
 						echo"</table>";
 						//echo "<h2 class='emptyResult'>TOTALE: $totale</h2>";
 						if ($tot>0) {
 							echo "<input id='conferma' class= 'conferma' type='button' value='Conferma acquisti' onclick='conferma()''>";
 						}
-						//print_r($carrello);
 
 					?>
 			</article>

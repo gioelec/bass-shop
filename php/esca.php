@@ -90,9 +90,7 @@ class Esca {
 		$result = $stmnt->get_result();
 		return toArray($result);
 	}
-	public static function getLatest($id){
-		echo $id;
-		$mail=$id;
+	public static function getLatest($mail){
 		global $bassShopDb;
 		$stmnt = $bassShopDb->prepare("SELECT DISTINCT(Nome),Prezzo,Peso,Lunghezza,Immagine,Descrizione,idItem,Tipo
 			FROM (SELECT items.nome as Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione,items.idItem as 		idItem,data,Tipo
