@@ -24,9 +24,28 @@ class Carrello {
 	public function add($item){
 		$prezzo=$item->__get('prezzo');
 		$quan=$item->__get('quantita');
+		$id=$item->__get('idEsca');
 		$this->totale=$this->totale+$prezzo[0]*$quan;
+		foreach ($this->array as $elem) {
+			if($id==$elem->__get('idEsca')){
+				$elem->incQuantita($quan);
+				return;
+			}
+
+
+		}
 		array_push($this->array, $item);
-		//array_push($this->quantita,$quan);
+	}
+	public function rem($id){
+		$i=0;
+		foreach ($this->array as $elem) {
+			if($elem->__get('idEsca')==$id){
+				$this->totale-=$elem->__get('prezzo')*$elem->__get('quantita');
+				array_splice($this->array, $i);
+				return;
+			}
+			$i++;
+		}
 	}
 	public function getTotale(){
 		return $this->totale;

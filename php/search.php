@@ -36,8 +36,7 @@ global $bassShopDb;
 					foreach ($vettore as $esca) {
 						$nome= $esca['Nome'];
 						$idEsca= $esca['idItem'];
-						$out .= "<li><a href=paginaDettagliata.php?idEsca=$idEsca>".$nome."</a></li>";
-						//$out .= '<br>';
+						$out .= "<a href=paginaDettagliata.php?idEsca=$idEsca".$nome."><li>$nome</li></a>";
 					}
 					$out.="</ul>";
 				}

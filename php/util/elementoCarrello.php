@@ -13,4 +13,7 @@ class elementoCarrello{
 	public function __get($field) {
 		return $this->$field;
 	}
+	public function incQuantita($quan){
+		$this->quantita+=$quan;
+	}
 }

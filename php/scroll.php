@@ -14,17 +14,26 @@ $escheDiTendenza=$_SESSION['elenco'];
 						echo "<a>";
 							echo "<h1 class= 'nome'>{$esca['Nome']}</h1> ";
 							echo "<a href='paginaDettagliata.php?idEsca=$idEsca'>";
-							echo "<img id= 'vendita' alt='cover' src={$esca['Immagine']} >";//>";
+							echo "<img class= 'vendita' alt='cover' src={$esca['Immagine']} height='355' width='300'>";//>";
 						echo "</a>";
 						echo "<figcaption>";
 	        				echo "<p>{$esca['Descrizione']}</p>";
 	    				echo "</figcaption>";
-						echo "<label for='quanti'>Quantità</label><br>";							
-						echo"<input required max='10' min='0' title='Inserisci una quantità valida da 0 a 10' type='number' name='quanti' id='quanti.$idEsca'>";
+						
+						echo"<div class='caratteristiche'>";	
+
+							echo"<p>Prezzo: {$esca['Prezzo']}</p>	"	;
+							if($esca['Tipo']!=='m'){
+								echo"<p>Lunghezza: {$esca['Lunghezza']}</p>	"	;		
+							}
+							echo"<p>Peso: {$esca['Peso']}</p>	"	;
+							echo "<label for='quanti'>Quantità</label><br>";
+							echo"<input required max='20' min='1' title='Inserisci una quantità valida da 1 a 20' type='number' name='quanti' id='quanti.$idEsca' value='1'>";
+						echo"</div>";
 						echo "<input class= 'conferma' type='button' value='Aggiungi al carrello' onclick='aggiungi({$esca['idItem']})''>";
 						echo "<input type='hidden' name='nome' id='nome.$idEsca' value={$esca['Nome']}>";
 						echo "<input type='hidden' name='prezzo' id='prezzo.$idEsca' value={$esca['Prezzo']}>";
-						echo "</a>";
+
 					echo "</li>";
 				echo "</ul>";
 			echo "</form>";										

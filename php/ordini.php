@@ -53,15 +53,27 @@
                                 $idAcquisto=$esca['idAcquisto'];
                                 echo "<ul class='pubblicizza' id='lista.$idAcquisto'>";
                                     echo "<li >";
-                                       //echo "<div>";
-                                        echo "<span >";//
-                                        echo "<p>Item: {$esca['Nome']}  Quantita: {$esca['idItem']} Prezzo: {$esca['Prezzo']} Nome, Cognome cliente: {$esca['nome']}, {$esca['cognome']},$idAcquisto </p> ";
-                                       // echo "<span >{$esca['idItem']}</span> ";
-                                       // echo "<span >{$esca['quantita']}</span> ";
-                                       // echo "<span >{$esca['Prezzo']}</span> ";
-                                       // echo "<span >{$esca['nome']}</span> ";
-                                       // echo "<span >{$esca['cognome']}
-                                        echo"</span> ";
+                                    echo "<table id='tabella' class='Lista'>";
+                                        echo "<tr>";
+
+                                            echo "<th>Codice Articolo</th>";
+                                            echo "<th>Nome Articolo</th>";
+                                            echo "<th>Prezzo</th>";
+                                            echo "<th>Quantita</th>";
+                                            echo "<th>Nome Acquirente</th>";
+                                            echo "<th>Cognome Acquirente</th>";
+                                        echo"</tr>";
+
+                                       echo "<tr>";
+
+                                            echo "<td>{$esca['idItem']}</td>";
+                                            echo "<td>{$esca['Nome']}</td>";
+                                            echo "<td>{$esca['Prezzo']}</td>";
+                                            echo "<td>{$esca['quantita']}</td>";
+                                            echo "<td>{$esca['nome']}</td>";
+                                            echo "<td>{$esca['cognome']}</td>";
+                                        echo"</tr>";
+                                    echo "</table>";
                                         echo "<div id='div.$idAcquisto'>";
                                         if($esca['spedito']==0)
                                             echo "<input class= 'conferma' id='evadi.$idAcquisto' type='button' value='Evadi' onclick='evadi({$esca['idAcquisto']})''>";

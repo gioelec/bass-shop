@@ -1,7 +1,7 @@
-function showSearch(){
-	document.getElementById('search').style.display = 'block';	
+function show(nome){
+	document.getElementById(nome).style.display = 'block';	
 
 }
-function hideSearch() {
-	document.getElementById('search').style.display = 'none';	
+function hide(nome) {
+	document.getElementById(nome).style.display = 'none';	
 }

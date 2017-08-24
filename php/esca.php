@@ -73,7 +73,7 @@ class Esca {
 	
 
 
-		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione
+		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione,Tipo
 			FROM escheDiTendenza INNER JOIN items ON items.idItem=escheDiTendenza.idEsca
 			WHERE items.Tipo='e' ORDER BY quanti DESC");
 		checkQuery($stmnt);	
@@ -84,30 +84,32 @@ class Esca {
 	}
 	public static function getElencoEsche() {
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione FROM items WHERE items.Tipo='e'  ORDER BY nome");
+		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione,Tipo FROM items WHERE items.Tipo='e'  ORDER BY nome");
 		checkQuery($stmnt);	
 		$stmnt->execute();
 		$result = $stmnt->get_result();
 		return toArray($result);
 	}
 	public static function getLatest($id){
+		echo $id;
+		$mail=$id;
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT DISTINCT(Nome),Prezzo,Peso,Lunghezza,Immagine,Descrizione,idItem
-			FROM (SELECT items.nome as Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione,items.idItem as 		idItem,data 
+		$stmnt = $bassShopDb->prepare("SELECT DISTINCT(Nome),Prezzo,Peso,Lunghezza,Immagine,Descrizione,idItem,Tipo
+			FROM (SELECT items.nome as Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione,items.idItem as 		idItem,data,Tipo
 					FROM items INNER JOIN acquisti
 				 	INNER JOIN clienti
 				 	ON items.idItem=acquisti.idItem and acquisti.idCliente=clienti.idclienti
 				 	WHERE clienti.email=?
 				 	ORDER BY Data DESC) as D");
-		$stmnt->bind_param("s",$id);
-		checkQuery($stmnt);	
+		$stmnt->bind_param("s",$mail);
+		checkQuery($stmnt);		
 		$stmnt->execute();
 		$result = $stmnt->get_result();
 		return toArray($result);
 	}
 	public static function getCanne(){
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione FROM items WHERE items.Tipo='c'  ORDER BY nome");
+		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione,Tipo FROM items WHERE items.Tipo='c'  ORDER BY nome");
 		checkQuery($stmnt);	
 		$stmnt->execute();
 		$result = $stmnt->get_result();
@@ -115,7 +117,7 @@ class Esca {
 	}
 	public static function getMulinelli(){
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione FROM items WHERE items.Tipo='m'  ORDER BY nome");
+		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione,Tipo FROM items WHERE items.Tipo='m'  ORDER BY nome");
 		checkQuery($stmnt);	
 		$stmnt->execute();
 		$result = $stmnt->get_result();
@@ -123,7 +125,7 @@ class Esca {
 	}
 	public static function getEsca($id){
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione FROM items WHERE idItem=?  LIMIT 1");
+		$stmnt = $bassShopDb->prepare("SELECT idItem,Nome,Prezzo,Peso,Lunghezza,Immagine,Descrizione,Tipo FROM items WHERE idItem=?  LIMIT 1");
 		$stmnt->bind_param("i",$id);
 		checkQuery($stmnt);	
 		$stmnt->execute();

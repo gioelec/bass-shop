@@ -30,6 +30,7 @@ AjaxManager.performAjaxRequest =
 		xmlHttp.open(method, url, isAsync); 
 		xmlHttp.onreadystatechange = function (){
 			if (xmlHttp.readyState == 4){
+				//alert(xmlHttp.responseText);
 				var data = JSON.parse(xmlHttp.responseText);
 				responseFunction(data);
 			}

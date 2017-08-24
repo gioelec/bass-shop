@@ -2,8 +2,8 @@ body{
 	margin: 0px;
 }
 #content_nav{
-	width: 100%;
-	background-color: grey; 
+	width: 1177px;
+	background-color:grey; 
 	margin-left: 142px;
 	text-align: center;
 	padding-right: 30px;
@@ -12,9 +12,23 @@ body{
 }
 
 #content_nav a{
+	padding-left: 40px;
 	margin-right: 30px;
-	font-size: 18px;
+	font-size: 20px;
 	text-decoration: none;
+
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px;
+    
+	padding-right: 100px;    /*
+        width: 200px;
+        height: 50px;
+        text-decoration: none;
+        color: black;
+        
+        background-color: #f0e68c;*/
+ 
 }
 
 #content_nav a:visited{
@@ -43,7 +57,7 @@ body{
 }
 .pubblicizza{
 	margin: auto;
-    width: 50%;
+    width: 800px;
     border: 3px solid green;
     padding: 10px;
 	border-style: dotted;
@@ -60,8 +74,12 @@ body{
 	height: 355px;
 }
 
-figcaption{
-	align: right;
+
+img.vendita{
+   padding:1px;
+   border:1px solid #021a40;
+   background-color:#ffc;
+
 }
 .nome{
 	text-align: left;
@@ -108,15 +126,16 @@ aside#search {
 
 
 
-ul.risultati{
+ul.risultati,ul.listamenu{
  width:100%; 
- border:2px solid #bcc;
+ /*border:2px solid #bcc;/*/
  height:auto;
  padding:0px;
  margin:0px;
 }
-ul.risultati li, 
-ul.risultati li a{
+ul.risultati li,
+ul.listamenu li 
+{
  background-color:#fff;
  color:#000;
  font-size:18px; 
@@ -128,8 +147,16 @@ ul.risultati li a{
  display:block;
 }
 ul.risultati li:hover,
-ul.risultati li a:hover{
+ul.listamenu li:hover{
  background-color:#bcc;
  color:#000;
  text-decoration:normal;
 }
+ul.listamenu li {
+ margin-top: 50px;
+ text-align: center;
+ font-size:15px; 
+ background-color:rgb(39, 39, 39);
+}
+div.caratteristiche{
+display: inline;}
