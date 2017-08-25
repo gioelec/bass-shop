@@ -167,5 +167,10 @@ div.caratteristiche{
 display: inline;}
 #createForm{
   margin: auto;
+  margin-top: 3%;
 
+}
+.lightwide{
+  width:25%;
+  margin-bottom: 10px;
 }

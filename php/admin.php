@@ -25,34 +25,38 @@
 		<title>Bass Shop - Upload</title>
 	</head>
 	<main>
-		<header><h2>Inserimento Elemento</header>
-
 		<form  id="createForm" class="sign_in" method="POST" action="util/upload.php" enctype="multipart/form-data">
 			<article data-fragment data-name="Inserisci titolo, prezzo e tags" >
 				<header><h3>Inserisci le informazioni principali</h3></header>
 
 					<div class="left">
 						
-						<div id="uploader" class="fileInput pictureInput">
+						<div id="uploader" class="lightwide">
 							<!--<label for="cover">Scegli</label>
 							<img src="../immagini/icon2.jpg" alt="cover picture">-->
 							<input type="file" name="cover" id="cover"/>
 							<!--<progress max="100" value="0"></progress>-->
 						</div><br>
-						<div>
+						<div> <!--NOME-->
 							<label for="Nome">Nome Articolo</label><br>
-							<input pattern="([a-zA-Z0-9]( ){0,1}){4,50}" title="Inserisci un titolo: da 4 a 50 caratteri o numeri"  class="light" type="text" name="Nome" id="Nome" required>
+							<input pattern="([a-zA-Z0-9]( ){0,1}){4,50}" title="Inserisci un titolo: da 4 a 50 caratteri o numeri"  class="lightwide" type="text" name="Nome" id="Nome" required>
 						</div>
-						<label for="Prezzo">Prezzo</label><br>
-						<input required max="500" min="0" title="Inserisci un prezzo valido: da 0 a 500" class="light" type="number" name="Prezzo" id="Prezzo">
-
-						<label for="Peso">Prezzo</label><br>
-						<input required max="500" min="0" title="Inserisci un peso valido: da 0 a 500" class="light" type="number" name="Peso" id="Peso">
-
-						<label for="Lunghezza">Lunghezza</label><br>
-						<input required max="300" min="0" title="Inserisci una lunghezza valida: da 0 a 500" class="light" type="number" name="Lunghezza" id="Lunghezza">
-
-						<input   pattern="([a-zA-Z0-9]( ){0,1}){4,50}" title="Inserisci una descrizione fino a 500 caratteri"  class="light" type="text" name="Descrizione" id="Descrizione" required>
+						<div><!--PREZZO-->
+							<label for="Prezzo">Prezzo</label><br>
+							<input required max="500" min="0" title="Inserisci un prezzo valido: da 0 a 500" class="lightwide" type="number" name="Prezzo" id="Prezzo">
+						</div>
+						<div><!--PESO-->
+							<label for="Peso">Peso</label><br>
+							<input required max="500" min="0" title="Inserisci un peso valido: da 0 a 500" class="lightwide" type="number" name="Peso" id="Peso" >
+						</div>
+						<div>
+							<label for="Lunghezza">Lunghezza</label><br>
+							<input required max="300" min="0" title="Inserisci una lunghezza valida: da 0 a 500" class="lightwide" type="number" name="Lunghezza" id="Lunghezza">
+						</div>
+						<div>
+							<label for="Descrizione">Descrizione</label><br>
+							<input  title="Inserisci una descrizione fino a 500 caratteri"  class="lightwide" type="text" name="Descrizione" id="Descrizione">
+						</div>
 
 						<select name="Tipo" id="Tipo">
 						  <option value="e">Esca</option>

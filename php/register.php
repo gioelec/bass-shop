@@ -10,6 +10,7 @@
 		<script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>
 		<script type="text/javascript" src="./../js/ajax/exists.js"></script>
 		<link rel="stylesheet" href="./../css/login.css" type="text/css" media="screen">
+		<link rel="icon" href = "./../immagini/icon2.jpg" sizes="32x32" type="image/jpg">
 		<link rel="stylesheet" href="./../css/register.css" type="text/css" media="screen">
 	</head>
 	<body>
