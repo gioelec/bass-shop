@@ -42,10 +42,13 @@ class Esca {
 
 	public function create($file,$sDb = 0) {
 		global $bassShopDb;
-		$extension = pathinfo($file['name'],PATHINFO_EXTENSION);
-		$filename = basename($file['name'], ".$extension") . date("Ymdhis") . "." . $extension;
-		move_uploaded_file($file['tmp_name'], "." . "./uploads/" . $filename);
-		$path =  "./uploads/"  . $filename;
+		if($file){
+			$extension = pathinfo($file['name'],PATHINFO_EXTENSION);
+			$filename = basename($file['name'], ".$extension") . date("Ymdhis") . "." . $extension;
+			move_uploaded_file($file['tmp_name'], "." . "./uploads/" . $filename);
+			$path =  "./uploads/"  . $filename;
+		}else
+			$path="../immagini/esche/default.jpg";
 		//echo $this->nome[0];
 		if($sDb) {
 			$stmnt = $bassShopDb->prepare("INSERT INTO items(Nome,Prezzo,Lunghezza,Peso,Descrizione,Immagine,Tipo) VALUES(?,?,?,?,?,?,?)");
@@ -60,11 +63,11 @@ class Esca {
 	}
 
 
-	public function delete() {
+	public static function delete($id) {
 		global $bassShopDb;
-		$stmnt = $bassShopDb->prepare("DELETE FROM user WHERE idItem=?");
+		$stmnt = $bassShopDb->prepare("DELETE FROM items WHERE idItem=?");
 		checkQuery($stmnt);
-		$stmnt->bind_param("i",$this->idItem);
+		$stmnt->bind_param("i",$id);
 		return $stmnt->execute();
 	}
 
@@ -130,5 +133,15 @@ class Esca {
 		$result = $stmnt->get_result();
 		return toArray($result);
 	}	
+	/*public static function getImmagine($id){
+		global $bassShopDb;
+		$stmnt = $bassShopDb->prepare("SELECT Immagine FROM items WHERE idItem=?  LIMIT 1");
+		$stmnt->bind_param("i",$id);
+		checkQuery($stmnt);	
+		$stmnt->execute();
+		$result = toArray($stmnt->get_result());
+		return $result[0];
+		
+	}*/	
 }
 

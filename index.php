@@ -12,8 +12,8 @@
 <html lang="it">
 	<head>
 		<meta charset="utf-8"> 
-    	<meta name = "author" content = "PWEB">
-    	<meta name = "keywords" content = "game">
+    	<meta name = "author" content = "GIOELE">
+    	<meta name = "keywords" content = "shop">
 		<link rel="stylesheet" href="./css/login.css" type="text/css" media="screen">
 		<!--<script type="text/javascript" src="./js/effects.js"></script>-->
 		<link rel="icon" href = "./immagini/icon2.jpg" sizes="32x32" type="image/jpg"> 
@@ -21,9 +21,9 @@
 		<title>Bass Shop</title>
 	</head>
 	<body onLoad="begin()">
-		<section id="sign_in_content">
+		<section class="sign_in">
 		<div id="sign_in_content_header">
-			Bass Shop
+			<h3>Bass Shop</h3>
 		</div>
 		<div id="login_form">
 			<form name="login" method="post" action="php/login.php">
@@ -37,7 +37,7 @@
 				</div>	
 				<div>
 					<input type="submit" value="Enter">
-					<a href="./php/register.php" target="_blank">Registrati</a>
+					<a href="./php/register.php">Registrati</a>
 				</div>
 				
 				<?php

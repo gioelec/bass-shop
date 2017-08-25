@@ -1,9 +1,9 @@
 <?php
 
-	require_once __DIR__ . "/config.php";
+	require_once __DIR__ . "/../config.php";
     require_once DIR_UTIL . "bassShopDbManager.php"; 
     require_once DIR_UTIL . "sessionUtil.php";
-    require_once __DIR__ . "/cliente.php";
+    require_once __DIR__ . "/../cliente.php";
 	
 	$string = $_GET['username'];
 	$tipo = $_GET['tipo'];

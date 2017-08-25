@@ -1,15 +1,15 @@
 function existsUser(){
 	document.getElementById("username_error").textContent="";
 	var len = document.getElementById("username").value.length;
-	if(len<6||len>10){
+	if(len<6||len>20){
 		document.getElementById("username").style.border="2px solid red";
-		document.getElementById("username_error").textContent="Username da 6 a 10 caratteri";
+		document.getElementById("username_error").textContent="Username da 6 a 20 caratteri";
 		return;
 	}
 	username = encodeURIComponent(document.getElementById("username").value);
 	tipo = encodeURIComponent(0);
 	
-	AjaxManager.performAjaxRequest("GET","esiste.php?username="+username+"&tipo="+tipo,true,null,useHttpResponse);
+	AjaxManager.performAjaxRequest("GET","./ajax/esiste.php?username="+username+"&tipo="+tipo,true,null,useHttpResponse);
 	function useHttpResponse(response){
 		if(response==0){
 				document.getElementById("username").style.border="2px solid green";
@@ -33,7 +33,7 @@ function existsMail(){
 	}
 	username = encodeURIComponent(document.getElementById("email").value);
 	tipo = encodeURIComponent(1);
-	AjaxManager.performAjaxRequest("GET","esiste.php?username="+username+"&tipo="+tipo,true,null,useHttpResponse);
+	AjaxManager.performAjaxRequest("GET","./ajax/esiste.php?username="+username+"&tipo="+tipo,true,null,useHttpResponse);
 	function useHttpResponse(response){
 		if(response==0){
 			document.getElementById("email").style.border="2px solid green";

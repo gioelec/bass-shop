@@ -1,7 +1,7 @@
 function evadi(id){
     idAcquisto = encodeURIComponent(id);
     tipo=encodeURIComponent(0);
-    AjaxManager.performAjaxRequest("GET","evadi.php?idAcquisto="+idAcquisto+"&tipo="+tipo,true,null,useHttpResponse); 
+    AjaxManager.performAjaxRequest("GET","./ajax/evadi.php?idAcquisto="+idAcquisto+"&tipo="+tipo,true,null,useHttpResponse); 
     function useHttpResponse(response){
         alert(response);
     }
@@ -17,7 +17,7 @@ function evadi(id){
 function nascondi(id){
     idAcquisto = encodeURIComponent(id);
     tipo=encodeURIComponent(1);
-    AjaxManager.performAjaxRequest("GET","evadi.php?idAcquisto="+idAcquisto+"&tipo="+tipo,true,null,useHttpResponse); 
+    AjaxManager.performAjaxRequest("GET","./ajax/evadi.php?idAcquisto="+idAcquisto+"&tipo="+tipo,true,null,useHttpResponse); 
     document.getElementById("lista."+id).style.display = 'none';  
     function useHttpResponse(response){
         alert(response);

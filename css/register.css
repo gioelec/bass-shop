@@ -1,25 +1,18 @@
-form{
-	left: 35%;
-	position: absolute;
-	width: 20%;
-	margin: auto;
-	text-align: center;
-	color: white;
-	background-color: rgb(100, 255, 150);
-	padding: 3%;
-	border-radius: 12px;
-	margin-top: 5%;
-	float: center;
+#registerForm{
+	margin-top: 25px;
 }
 form div{
 	margin: 3px auto;
 }
 .textInput{
-	marker-top: 2px;
+	/*marker-top: 2px;*/
 	height: 28px;
 	font-size: 20px;
 	padding: 10px;
 	width: 100%;
+}
+.lightwide{
+	width:100%;
 }
 .error{
 	color: #FF1F1F;
@@ -29,25 +22,8 @@ form div{
 	width: 50%;
 	margin: auto;
 	padding: 15px 0;
-	float: center;
+	/*float: center;*/
 	opacity: 1;
 }
-.sign_in_error{
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin: auto;
-	width: 75%;
-	position: relative;
-	background-color: rgba(255, 0, 0, 0.2);
-	border: 1px solid rgba(255, 0, 0, 0.8);
-	border-radius: 4px;
-	color: rgb(132, 3, 3);
-	text-align: center;
-	text-shadow: 0 0 3px rgb(255, 255, 255);
-	padding: 5px;
-}
-label {
-  display: inline-block;
-  width: 140px;
-  text-align: left;
-}​
+
+/*admin.php*/

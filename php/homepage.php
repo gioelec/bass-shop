@@ -5,10 +5,7 @@
     require_once __DIR__ . "/esca.php";
 
     session_start();
-    if (!isset($_SESSION['logged'])) {
-    	exit();
-    }
-  	if ($_SESSION['logged']==false){
+  	if (!isset($_SESSION['logged'])||$_SESSION['logged']==false){
 		    header('Location: ./../index.php');
 		    exit;
     }
@@ -18,13 +15,14 @@
     $carrello=$_SESSION['carrello'];
     $escheDiTendenza= Esca::getTendenza();
     $_SESSION['elenco']=$escheDiTendenza;
+    $_SESSION['dettagliata']=false;
 ?>
 <!DOCTYPE html>
 <html lang="it">
 	<head>
 		<meta charset="utf-8"> 
-    	<meta name = "author" content = "PWEB">
-    	<meta name = "keywords" content = "game">		
+		<meta name = "author" content = "GIOELE">
+    	<meta name = "keywords" content = "shop">		
 		<link rel="stylesheet" href="./../css/home.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="./../css/carrello.css" type="text/css" media="screen">
 		<link rel="icon" href = "./immagini/icon2.jpg" sizes="32x32" type="image/jpg"> 
@@ -44,6 +42,5 @@
 					?>
 					
 			</article>
-		</div>
 	</body>
 </html>

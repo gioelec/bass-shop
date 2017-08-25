@@ -7,15 +7,15 @@ global $bassShopDb;
 ?>
 <!DOCTYPE html>
 <html lang="it">
-<body>
 	<head>
 		<meta charset="utf-8"> 
-    	<meta name = "author" content = "PWEB">
-    	<meta name = "keywords" content = "game">
+    	<meta name = "author" content = "GIOELE">
+    	<meta name = "keywords" content = "shop">
 		<link rel="stylesheet" href="./../css/home.css" type="text/css" media="screen">
 		<link rel="icon" href = "./../immagini/icon2.jpg" sizes="32x32" type="image/jpg"> 
 		<title>Bass Shop - Search</title>
 	</head>
+	<body>
 	<?php
 
 		if(isset($_POST['search'])){
@@ -32,13 +32,13 @@ global $bassShopDb;
 
 					$vettore=toArray($result);
 					$out = "<h1>La tua ricerca ha prodotto i seguenti risultati: </h1>";
-					$out.="<ul class=risultati>";
+					$out.="<div class=risultati>";
 					foreach ($vettore as $esca) {
 						$nome= $esca['Nome'];
 						$idEsca= $esca['idItem'];
-						$out .= "<a href=paginaDettagliata.php?idEsca=$idEsca".$nome."><li>$nome</li></a>";
+						$out .= "<a href='paginaDettagliata.php?idEsca=$idEsca'>$nome</a>";
 					}
-					$out.="</ul>";
+					$out.="</div>";
 				}
 				
 		}

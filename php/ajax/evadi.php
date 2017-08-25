@@ -1,8 +1,8 @@
 <?php 
-	require_once __DIR__ . "/config.php";
-    include DIR_UTIL . "sessionUtil.php";
-    include __DIR__ . "/esca.php";
-    require_once DIR_UTIL . "bassShopDbManager.php";
+  require_once __DIR__ . "/../config.php";
+  require_once __DIR__ . "/../esca.php";
+  require_once DIR_UTIL . "bassShopDbManager.php";
+  require_once DIR_UTIL . "sessionUtil.php";
     
     session_start();
 

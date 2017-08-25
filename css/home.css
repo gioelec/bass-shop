@@ -1,5 +1,6 @@
 body{
 	margin: 0px;
+  background-color: #ffa;
 }
 #content_nav{
 	width: 1177px;
@@ -45,7 +46,7 @@ body{
 }
 
 #menu{
-	width: 100px;
+	width: 106px;
 	height: 100%;
 	top: 0px;
 	left: 0px;
@@ -57,11 +58,15 @@ body{
 }
 .pubblicizza{
 	margin: auto;
-    width: 800px;
-    border: 3px solid green;
-    padding: 10px;
-	border-style: dotted;
+  width: 800px;
+  border: 3px solid blue;
+  padding: 10px;
 	text-align: center;
+  border-collapse: collapse;
+  list-style-type: none;
+  margin-bottom: 100px;
+  margin-left: 25%;
+  margin-top:60px;
 }
 .aggiungi{
 	margin: auto;
@@ -126,14 +131,14 @@ aside#search {
 
 
 
-ul.risultati,ul.listamenu{
+div.risultati,ul.listamenu{
  width:100%; 
  /*border:2px solid #bcc;/*/
  height:auto;
  padding:0px;
  margin:0px;
 }
-ul.risultati li,
+div.risultati a,
 ul.listamenu li 
 {
  background-color:#fff;
@@ -146,11 +151,11 @@ ul.listamenu li
  line-height:50px; 
  display:block;
 }
-ul.risultati li:hover,
+div.risultati a:hover,
 ul.listamenu li:hover{
  background-color:#bcc;
  color:#000;
- text-decoration:normal;
+ /*text-decoration:normal;*/
 }
 ul.listamenu li {
  margin-top: 50px;
@@ -160,3 +165,7 @@ ul.listamenu li {
 }
 div.caratteristiche{
 display: inline;}
+#createForm{
+  margin: auto;
+
+}

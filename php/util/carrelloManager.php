@@ -5,11 +5,9 @@ class Carrello {
 	private $array=array();
 	private static $istanza=null;
 	public static function getIstanza(){
-		echo "istanza";
 		print_r(self::$istanza);
         if (!self::$istanza){
             self::$istanza=new Carrello();
-            echo "nuovo Carrello";
         }
         return self::$istanza;
     }

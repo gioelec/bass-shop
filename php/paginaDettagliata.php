@@ -15,6 +15,7 @@
     $idEsca = $_GET['idEsca'];
 	$esche =Esca::getEsca($idEsca);
     $_SESSION['elenco']=$esche;
+   	$_SESSION['dettagliata']=true;
 
 ?>
 <!DOCTYPE html>

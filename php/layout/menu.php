@@ -26,7 +26,7 @@
 	 			?>	
 	 		<li>
 	 			<a href="./carrello.php">
-	 				<img border="0" alt="home" src="./../immagini/carrello.png" width="30" height="30">
+	 				<img alt="home" src="./../immagini/carrello.png" width="30" height="30">
 				</a>
 			</li>	
 			<li>

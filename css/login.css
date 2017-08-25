@@ -2,7 +2,8 @@
 	color: green;
 	font-size: 30pt;
 }
-#sign_in_content{
+.sign_in{
+	/*float: center;*/
 	left: 35%;
 	position: absolute;
 	width: 20%;
@@ -20,13 +21,11 @@ label{
 	text-align: left;
 }
 label:after { content: ": " }
-input {
-	align-self: right;
-}
+
 .sign_in_error{
-	margin-top: 5px;
+	margin:auto;
 	margin-bottom: 5px;
-	margin: auto;
+	margin-top: 10px;
 	width: 75%;
 	position: relative;
 	background-color: rgba(255, 0, 0, 0.2);
@@ -38,6 +37,9 @@ input {
 	padding: 5px;
 }
 .submit{
-	padding: 7px;
+	padding: 10px;
 	width:100%;
+}
+div{
+	margin-top: 10px;
 }

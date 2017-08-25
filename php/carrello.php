@@ -30,8 +30,8 @@
 <html lang="it">
 	<head>
 		<meta charset="utf-8"> 
-    	<meta name = "author" content = "PWEB">
-    	<meta name = "keywords" content = "game">
+    	<meta name = "author" content = "GIOELE">
+    	<meta name = "keywords" content = "shop"> 
 		<link rel="stylesheet" href="./../css/carrello.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="./../css/home.css" type="text/css" media="screen">
 		<link rel="icon" href = "./../immagini/icon2.jpg" sizes="32x32" type="image/jpg">
@@ -71,25 +71,24 @@
 									$totale+=$sub;
 									echo "<tr id='row.$id'>";
 										echo "<td>$nome</td>";
-										echo "<td>$prezzo</td>";
+										echo "<td>$prezzo €</td>";
 										echo "<td>$quantita</td>";
-										echo "<td>$sub</td>";
-										echo "<td id='cestino'><img src='./../immagini/cestino.png 'alt='elimina' width=32 height=32 onclick='rimuovi($id,$sub,$totale)' /></td>";
+										echo "<td>$sub €</td>";
+										echo "<td class='cestino'><img src='./../immagini/cestino.png' alt='elimina' width=32 height=32 onclick='rimuovi($id,$sub,$totale)' /></td>";
 									echo"</tr>";
 									$i++;								
 								}
 								echo "<tr id='lastrow'>";
-									echo "<td colspan='5' id='totale'><h2>TOTALE: $totale</h2></td>";
+									echo "<td colspan='5' id='totale'><h2>TOTALE: $totale €</h2></td>";
 								echo"</tr>";
 							
 						echo"</table>";
 						//echo "<h2 class='emptyResult'>TOTALE: $totale</h2>";
 						if ($tot>0) {
-							echo "<input id='conferma' class= 'conferma' type='button' value='Conferma acquisti' onclick='conferma()''>";
+							echo "<input id='conferma' class= 'conferma' type='button' value='Conferma acquisti' onclick='conferma()'>";
 						}
 
 					?>
 			</article>
-		</div>
 	</body>
 </html>

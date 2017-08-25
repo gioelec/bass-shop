@@ -29,7 +29,7 @@ class Cliente{
 		$result = $stmnt->get_result();
 		$cliente = $result->fetch_object('Cliente');
 		if(!$cliente) return null;
-		if($cliente->password===$password){
+		if($cliente->password===md5($password)){
 			echo $cliente->idCliente;
 			echo $password;
 			return $cliente;
@@ -51,7 +51,8 @@ class Cliente{
 		}
 		$stmnt = $bassShopDb->prepare("INSERT INTO clienti(username,password,email,nome,cognome) VALUES(?,?,?,?,?)");
 		checkQuery($stmnt);
-		$stmnt->bind_param("sssss",$this->username,$this->password,$this->email,$this->nome,$this->cognome);
+		$password=md5($this->password);
+		$stmnt->bind_param("sssss",$this->username,$password,$this->email,$this->nome,$this->cognome);
 		$stmnt->execute();
 		$this->idCliente = $bassShopDb->getConnection()->insert_id;
 		return $this->idCliente;

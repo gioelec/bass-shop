@@ -1,5 +1,5 @@
 function conferma(){
-    AjaxManager.performAjaxRequest("GET","conferma.php",true,null,useHttpResponse);
+    AjaxManager.performAjaxRequest("GET","./ajax/conferma.php",true,null,useHttpResponse);
     window.location.href = "../php/homepage.php";
     function useHttpResponse(response){
         alert(response);
@@ -17,7 +17,7 @@ function rimuovi(item,sub,totale){
 		var bottone = document.getElementById("conferma");
    		bottone.parentNode.removeChild(bottone);
 	}
-	AjaxManager.performAjaxRequest("GET","rimuovi.php?id="+id,true,null,useHttpResponse);
+	AjaxManager.performAjaxRequest("GET","./ajax/rimuovi.php?id="+id,true,null,useHttpResponse);
 	
 	function useHttpResponse(response){
         alert(response);

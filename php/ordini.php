@@ -47,13 +47,12 @@
                     <?php
                         if(!sizeof($elenco)) echo "<p class='emptyResult'>Non abbiamo ricevuto ancora nessun ordine</p>";
                     ?>
-                    <ul class="ListaOrdini">
+                    <div class="ListaOrdini">
                         <?php
                             foreach($elenco as $esca) {
                                 $idAcquisto=$esca['idAcquisto'];
-                                echo "<ul class='pubblicizza' id='lista.$idAcquisto'>";
-                                    echo "<li >";
-                                    echo "<table id='tabella' class='Lista'>";
+                                echo "<div class='pubblicizza' id='lista.$idAcquisto'>";
+                                    echo "<table class='Lista'>";
                                         echo "<tr>";
 
                                             echo "<th>Codice Articolo</th>";
@@ -68,7 +67,7 @@
 
                                             echo "<td>{$esca['idItem']}</td>";
                                             echo "<td>{$esca['Nome']}</td>";
-                                            echo "<td>{$esca['Prezzo']}</td>";
+                                            echo "<td>{$esca['Prezzo']} €</td>";
                                             echo "<td>{$esca['quantita']}</td>";
                                             echo "<td>{$esca['nome']}</td>";
                                             echo "<td>{$esca['cognome']}</td>";
@@ -76,20 +75,18 @@
                                     echo "</table>";
                                         echo "<div id='div.$idAcquisto'>";
                                         if($esca['spedito']==0)
-                                            echo "<input class= 'conferma' id='evadi.$idAcquisto' type='button' value='Evadi' onclick='evadi({$esca['idAcquisto']})''>";
+                                            echo "<input class= 'conferma' id='evadi.$idAcquisto' type='button' value='Spedito' onclick='evadi({$esca['idAcquisto']})'>";
                                         else{
                                             echo"<img border='0' alt='spedito' src='./../immagini/spedito.png' width='100' height='100'>";
                                         }
                                         echo "</div>";
-                                        echo "<input class= 'conferma' id='nascondi' type='button' value='Nascondi Spedizione' onclick='nascondi({$esca['idAcquisto']})'>";
+                                        echo "<input class= 'conferma' type='button' value='Nascondi Spedizione' onclick='nascondi({$esca['idAcquisto']})'>";
                                         echo "<input type='hidden' value={$esca['idAcquisto']}>";
                                         //echo "</div>";
-                                    echo "</li>";
-                                echo "</ul>";                                     
+                                echo "</div>";                                     
                             }
                         ?>
-                    </ul>
+                    </div>
             </article>
-        </div>
     </body>
 </html>
