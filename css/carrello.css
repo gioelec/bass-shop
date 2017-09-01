@@ -29,10 +29,11 @@
 table, td, th {    
     border: 1px solid #ddd;
     text-align: left;
-    padding: 15px;
+    padding:1%;
 }
 
 table {
+    width: 100%;
     border-collapse: collapse;
     margin-left:auto; 
     margin-right:auto;
@@ -47,4 +48,8 @@ th {
 }
 .cestino,#totale{
   text-align: center;
+}
+#tabella{
+  margin-left: 20%;
+  width: 70%;
 }

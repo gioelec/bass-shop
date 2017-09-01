@@ -35,7 +35,7 @@
 		include DIR_LAYOUT . "horizontal_menu.php";
 	?>	
 			<article data-fragment data-name="Seguiti">
-				<header><h3>Di Tendenza</h3></header>
+				<!--<header><h3>Di Tendenza</h3></header>-->
 					<?php
 						if(!sizeof($escheDiTendenza)) echo "<p class='emptyResult'>Non vi sono Esche di Tendenza</p>";
 						include __DIR__ . "/scroll.php";

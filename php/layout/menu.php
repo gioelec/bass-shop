@@ -15,12 +15,12 @@
 						echo"<li>";
 						echo"<a href=./ordini.php>";
 							//<span class="menu_item_img profile_img"></span>
-							echo"<span>Ordini</span>";
+							echo"<span class= 'spanmenu'>Ordini</span>";
 						echo"</a>";
 						echo "<li>";
 		 				echo "<a href='./admin.php'>";
 						//echo"<div class='menu_item_img settings_img'></div>	";
-						echo "<span>Admin</span>";
+						echo "<span class= 'spanmenu'>Admin</span>";
 						echo"</a>";
 					}
 	 			?>	
@@ -32,7 +32,7 @@
 			<li>
 				<a href="./logout.php">
 					<!--<div class="menu_item_img sign_out_img"></div>	-->
-					<span>Sign out</span>
+					<span class= "spanmenu">Sign out</span>
 				</a>
 		</ul>
 	</div>
