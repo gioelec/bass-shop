@@ -29,11 +29,11 @@
 			<form name="login" method="post" action="php/login.php">
 				<div>
 					<label>Username</label>
-					<input type="text" placeholder="Username" name="username" required autofocus>
+					<input type="text" class="post" placeholder="Username" name="username" required autofocus>
 				</div>
 				<div>
 					<label>Password</label>
-					<input type="password" placeholder="Password" name="password" required>
+					<input type="password" class="post" placeholder="Password" name="password" required>
 				</div>	
 				<div>
 					<input type="submit" value="Enter">
@@ -50,5 +50,15 @@
 			</form>
 		</div>
 		</section>
+		<footer id="footer">
+		<p>
+			Progettazione Web A.A. 2016/2017
+		</p>
+		<p>
+			Cos'è Bass-Shop? <a id="scopri" href="./html/about.html">Scoprilo qua!</a>
+
+		</p>
+		</footer>
 	</body>
+
 </html>

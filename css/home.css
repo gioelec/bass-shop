@@ -3,9 +3,10 @@ body{
   background-color: #ffa;
 }
 #content_nav{
-	width: 90%;/*1177px;*/
+	width: auto;/*1177px; 90%*/
 	background-color:grey; 
 	margin-left: 10%;/*142px;*/
+  margin-right:0%;
 	text-align: center;
 	/*padding-right: 10%;*/
 	margin-top: 0px;
@@ -13,8 +14,8 @@ body{
 }
 
 #content_nav a{
-	padding-left: 4%;/*40px;*/
-	margin-right: 4%;/*30px;*/
+	padding-left: 5%;/*40px;*/
+	margin-right: 5%;/*30px;*/
 	font-size: 20px;
 	text-decoration: none;
 
@@ -164,8 +165,7 @@ div.caratteristiche{
  display: inline;
 }
 #createForm{
-  margin: auto;
-  margin-top: 3%;
+  margin: 0 auto;
 
 }
 .lightwide{
@@ -180,4 +180,19 @@ div.caratteristiche{
 	color: blue;
 	text-decoration-color: blue;
 
+}
+#info,.adminLabel{
+  width: 100%;
+  color: black;
+  text-shadow: 1px 0px 10px rgb(255, 255, 255);
+}
+#Descrizione{
+  width: 100%;
+  height: 150px;
+}
+.adminLabel{
+  font-size: 15pt;
+} 
+#home{
+  margin-left: 40%;
 }
