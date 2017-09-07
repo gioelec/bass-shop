@@ -143,5 +143,19 @@ class Esca {
 		return $result[0];
 		
 	}*/	
+	public static function getStatoOrdini($mail){
+		global $bassShopDb;
+		$stmnt = 
+			$bassShopDb->prepare("SELECT items.nome,prezzo,quantita,spedito 
+								  FROM acquisti 
+ 								  INNER JOIN clienti ON idCliente=idClienti INNER JOIN items ON items.idItem= acquisti.idItem
+								  WHERE email=?
+                                  ORDER BY data DESC");
+		$stmnt->bind_param("s",$mail);
+		checkQuery($stmnt);		
+		$stmnt->execute();
+		$result = $stmnt->get_result();
+		return toArray($result);
+	}
 }
 

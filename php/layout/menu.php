@@ -30,6 +30,11 @@
 				</a>
 			</li>	
 			<li>
+	 			<a href="./ordiniPassati.php">
+					<span class= "spanmenu">Stato Ordini</span>
+				</a>
+			</li>	
+			<li>
 				<a href="./logout.php">
 					<!--<div class="menu_item_img sign_out_img"></div>	-->
 					<span class= "spanmenu">Sign out</span>

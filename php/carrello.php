@@ -48,10 +48,11 @@
 		include DIR_LAYOUT . "horizontal_menu.php";
 	?>		
 			<article data-fragment data-name="Seguiti">
-				<header><h3>Carrello</h3></header>
+				<!--<header><h3>Carrello</h3></header>-->
 					<?php
 						/*if($totale==0) echo "<p class='emptyResult'>Attualmente non hai niente nel carrello</p>";*/
 						$totale=0;
+						echo "<div class = 'tabelle'>";
 						echo"<table id='tabella' class='Lista'>";
 							$tot=$carrello->getTotale();
 							$i=0;
@@ -83,6 +84,7 @@
 								echo"</tr>";
 							
 						echo"</table>";
+						echo "</div>";
 						//echo "<h2 class='emptyResult'>TOTALE: $totale</h2>";
 						if ($tot>0) {
 							echo "<input id='conferma' class= 'conferma' type='button' value='Conferma acquisti' onclick='conferma()'>";

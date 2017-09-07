@@ -11,7 +11,7 @@
     }
     $email = $_SESSION['email'];
     $ultimiAcquisti= Esca::getLatest($email);
-     if (!isset($_SESSION['carrello'])) {
+    if (!isset($_SESSION['carrello'])) {
     	$_SESSION['carrello']=Carrello::getIstanza();
     }
     $carrello=$_SESSION['carrello'];

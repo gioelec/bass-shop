@@ -4,7 +4,7 @@
 	require_once __DIR__ . "/../esca.php";
     require_once DIR_UTIL . "parametriDb.php";
     global $bassShopDb;
-    $cover = $_FILES['cover']; // RECUPERO LA COPERTINA DEL DOCUMENTO
+    $cover = $_FILES['cover']; // RECUPERO L'immagine
 
 	$esca= new Esca($_POST);
 
